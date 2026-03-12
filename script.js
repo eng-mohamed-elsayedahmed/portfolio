@@ -592,7 +592,7 @@ function initProjectFilters() {
 }
 
 // ---- Contact Form (Web3Forms Email + WhatsApp) ----
-const WEB3FORMS_KEY = 'YOUR_ACCESS_KEY'; // Replace with your Web3Forms access key
+const WEB3FORMS_KEY = '4242e461-4080-407c-a1c9-4ac858fbed33';
 
 function initContactForm() {
   const form = document.getElementById('contactForm');
