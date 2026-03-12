@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mohamed Elsayed | Frontend Developer</title>
+    <meta name="description" content="Mohamed Mahmoud Elsayed - Passionate Frontend Developer specializing in Angular with 2+ years of experience building scalable web applications.">
+    <meta name="keywords" content="Frontend Developer, Angular, TypeScript, Web Developer, Mohamed Elsayed">
+    <meta name="author" content="Mohamed Mahmoud Elsayed">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Mohamed Elsayed | Frontend Developer">
+    <meta property="og:description" content="Passionate Frontend Developer specializing in Angular with 2+ years of experience.">
+    <meta property="og:image" content="assets/img/profile.jpg">
+    <meta property="og:type" content="website">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' fill='none'><rect width='100' height='100' rx='20' fill='%236366f1'/><text x='50' y='62' font-family='monospace' font-size='48' font-weight='bold' fill='white' text-anchor='middle'>&lt;/&gt;</text></svg>">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&family=Cairo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Cursor Glow -->
+    <div class="cursor-glow" id="cursorGlow"></div>
+
+    <!-- Particles -->
+    <canvas id="particles"></canvas>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#hero" class="nav-logo">
+                <span class="logo-bracket">&lt;</span>ME<span class="logo-bracket">/&gt;</span>
+            </a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#hero" class="nav-link active" data-i18n="nav.home">Home</a></li>
+                <li><a href="#about" class="nav-link" data-i18n="nav.about">About</a></li>
+                <li><a href="#skills" class="nav-link" data-i18n="nav.skills">Skills</a></li>
+                <li><a href="#experience" class="nav-link" data-i18n="nav.experience">Experience</a></li>
+                <li><a href="#projects" class="nav-link" data-i18n="nav.projects">Projects</a></li>
+                <li><a href="#contact" class="nav-link" data-i18n="nav.contact">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="lang-toggle" id="langToggle" aria-label="Toggle language">
+                    <span class="lang-text">AR</span>
+                </button>
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                    <i class="fas fa-moon"></i>
+                    <i class="fas fa-sun"></i>
+                </button>
+                <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title animate-fade-up" style="--delay: 0.1s">
+                    <span data-i18n="hero.greeting">Hi, I'm</span> <span class="gradient-text">Mohamed</span>
+                    <span class="hero-wave">&#128075;</span>
+                </h1>
+                <h2 class="hero-subtitle animate-fade-up" style="--delay: 0.2s">
+                    <span class="typewriter" id="typewriter"></span>
+                    <span class="typewriter-cursor">|</span>
+                </h2>
+                <p class="hero-description animate-fade-up" style="--delay: 0.3s" data-i18n="hero.description">
+                    Passionate Frontend Developer with <strong>2+ years</strong> of experience building
+                    scalable web applications using <strong>Angular</strong>. I craft clean, performant,
+                    and user-friendly interfaces for complex business systems.
+                </p>
+                <div class="hero-actions animate-fade-up" style="--delay: 0.4s">
+                    <a href="#projects" class="btn btn-primary">
+                        <i class="fas fa-rocket"></i>
+                        <span data-i18n="hero.viewWork">View My Work</span>
+                    </a>
+                    <a href="#contact" class="btn btn-outline">
+                        <i class="fas fa-paper-plane"></i>
+                        <span data-i18n="hero.getInTouch">Get In Touch</span>
+                    </a>
+                    <a href="Mohamed_Elsayed_CV.pdf" class="btn btn-ghost" download>
+                        <i class="fas fa-download"></i>
+                        <span data-i18n="hero.downloadCV">Download CV</span>
+                    </a>
+                </div>
+                <div class="hero-stats animate-fade-up" style="--delay: 0.5s">
+                    <div class="stat">
+                        <span class="stat-number" data-count="2">0</span><span class="stat-plus">+</span>
+                        <span class="stat-label" data-i18n="hero.stat1">Years Experience</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number" data-count="9">0</span><span class="stat-plus">+</span>
+                        <span class="stat-label" data-i18n="hero.stat2">Projects Delivered</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number" data-count="30">0</span><span class="stat-plus">%</span>
+                        <span class="stat-label" data-i18n="hero.stat3">Performance Boost</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image animate-fade-up" style="--delay: 0.3s">
+                <div class="hero-image-wrapper">
+                    <div class="hero-image-glow"></div>
+                    <div class="hero-image-border"></div>
+                    <img src="assets/img/profile.jpg" alt="Mohamed Mahmoud Elsayed" loading="eager">
+                </div>
+                <div class="floating-badge badge-1" data-repel><i class="fab fa-angular"></i></div>
+                <div class="floating-badge badge-2" data-repel>
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TS" width="24" height="24">
+                </div>
+                <div class="floating-badge badge-3" data-repel><i class="fab fa-js-square"></i></div>
+                <div class="floating-badge badge-4" data-repel><i class="fab fa-sass"></i></div>
+                <div class="floating-badge badge-5" data-repel><i class="fab fa-git-alt"></i></div>
+                <div class="floating-badge badge-6" data-repel><i class="fab fa-css3-alt"></i></div>
+                <div class="floating-badge badge-7" data-repel><i class="fas fa-calculator"></i></div>
+                <div class="floating-badge badge-8" data-repel><i class="fas fa-chart-pie"></i></div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <a href="#about">
+                <span class="scroll-text" data-i18n="hero.scroll">Scroll Down</span>
+                <div class="scroll-mouse"><div class="scroll-dot"></div></div>
+            </a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section about">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag" data-i18n="about.tag">Get to know me</span>
+                <h2 class="section-title"><span data-i18n="about.titleStart">About</span> <span class="gradient-text" data-i18n="about.titleEnd">Me</span></h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="about-grid">
+                <div class="about-content reveal">
+                    <p class="about-text" data-i18n="about.p1">
+                        I'm a <strong>Frontend Developer</strong> based in <strong>Cairo, Egypt</strong>,
+                        specializing in building scalable, high-performance web applications with
+                        <strong>Angular</strong> and modern frontend technologies.
+                    </p>
+                    <p class="about-text" data-i18n="about.p2">
+                        With over <strong>2 years of professional experience</strong> at
+                        <strong>It Plus Programming Solutions</strong>, I've delivered 9+ complex ERP and
+                        business systems. I'm passionate about writing clean, maintainable code and
+                        optimizing performance &mdash; achieving a <strong>30% load time improvement</strong>
+                        through lazy loading and code optimization.
+                    </p>
+                    <p class="about-text" data-i18n="about.p3">
+                        I also have experience building <strong>backend systems using PHP</strong>
+                        with AI-assisted development, including REST APIs, authentication systems,
+                        and database management for ERP applications.
+                    </p>
+                    <div class="about-info-cards">
+                        <div class="info-card">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <span class="info-label" data-i18n="about.location">Location</span>
+                                <span class="info-value" data-i18n="about.locationVal">Cairo, Egypt</span>
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <i class="fas fa-briefcase"></i>
+                            <div>
+                                <span class="info-label" data-i18n="about.company">Company</span>
+                                <span class="info-value">It Plus Solutions</span>
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <i class="fas fa-chart-line"></i>
+                            <div>
+                                <span class="info-label" data-i18n="about.background">Background</span>
+                                <span class="info-value" data-i18n="about.backgroundVal">Finance → Tech</span>
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <i class="fas fa-code"></i>
+                            <div>
+                                <span class="info-label" data-i18n="about.specialty">Specialty</span>
+                                <span class="info-value" data-i18n="about.specialtyVal">Angular / ERP Systems</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image reveal">
+                    <div class="code-window">
+                        <div class="code-header">
+                            <div class="code-dots">
+                                <span class="dot red"></span>
+                                <span class="dot yellow"></span>
+                                <span class="dot green"></span>
+                            </div>
+                            <span class="code-filename">developer.ts</span>
+                        </div>
+                        <div class="code-body">
+<pre><code><span class="code-keyword">interface</span> <span class="code-type">Developer</span> {
+  <span class="code-prop">name</span>: <span class="code-string">"Mohamed Elsayed"</span>;
+  <span class="code-prop">role</span>: <span class="code-string">"Frontend Developer"</span>;
+  <span class="code-prop">experience</span>: <span class="code-string">"2+ years"</span>;
+  <span class="code-prop">skills</span>: <span class="code-type">string</span>[];
+  <span class="code-prop">passion</span>: <span class="code-string">"Building great UIs"</span>;
+}
+
+<span class="code-keyword">const</span> <span class="code-var">me</span>: <span class="code-type">Developer</span> = {
+  <span class="code-prop">name</span>: <span class="code-string">"Mohamed Elsayed"</span>,
+  <span class="code-prop">role</span>: <span class="code-string">"Frontend Developer"</span>,
+  <span class="code-prop">experience</span>: <span class="code-string">"2+ years"</span>,
+  <span class="code-prop">skills</span>: [
+    <span class="code-string">"Angular"</span>, <span class="code-string">"TypeScript"</span>,
+    <span class="code-string">"RxJS"</span>, <span class="code-string">"NgRx"</span>,
+    <span class="code-string">"SCSS"</span>, <span class="code-string">"REST APIs"</span>
+  ],
+  <span class="code-prop">passion</span>: <span class="code-string">"Building great UIs"</span>
+};</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section skills">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag" data-i18n="skills.tag">What I work with</span>
+                <h2 class="section-title"><span data-i18n="skills.titleStart">Technical</span> <span class="gradient-text" data-i18n="skills.titleEnd">Skills</span></h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-category reveal">
+                    <div class="skill-category-header">
+                        <i class="fas fa-code"></i>
+                        <h3 data-i18n="skills.frontend">Frontend Development</h3>
+                    </div>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <div class="skill-icon"><i class="fab fa-angular"></i></div>
+                            <span class="skill-name">Angular</span>
+                            <div class="skill-bar"><div class="skill-progress" data-progress="92"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TS" width="20" height="20">
+                            </div>
+                            <span class="skill-name">TypeScript</span>
+                            <div class="skill-bar"><div class="skill-progress" data-progress="90"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon"><i class="fab fa-html5"></i></div>
+                            <span class="skill-name">HTML5</span>
+                            <div class="skill-bar"><div class="skill-progress" data-progress="95"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon"><i class="fab fa-sass"></i></div>
+                            <span class="skill-name">SCSS</span>
+                            <div class="skill-bar"><div class="skill-progress" data-progress="88"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon"><i class="fab fa-js"></i></div>
+                            <span class="skill-name">JavaScript</span>
+                            <div class="skill-bar"><div class="skill-progress" data-progress="90"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon rxjs-icon"><i class="fas fa-sync-alt"></i></div>
+                            <span class="skill-name">RxJS</span>
+                            <div class="skill-bar"><div class="skill-progress" data-progress="85"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon ngrx-icon"><i class="fas fa-layer-group"></i></div>
+                            <span class="skill-name">NgRx</span>
+                            <div class="skill-bar"><div class="skill-progress" data-progress="83"></div></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category reveal">
+                    <div class="skill-category-header">
+                        <i class="fas fa-tools"></i>
+                        <h3 data-i18n="skills.tools">Tools & Styling</h3>
+                    </div>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <div class="skill-icon"><i class="fab fa-git-alt"></i></div>
+                            <span class="skill-name">Git & GitHub</span>
+                            <div class="skill-bar"><div class="skill-progress" data-progress="88"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon"><i class="fab fa-bootstrap"></i></div>
+                            <span class="skill-name">Bootstrap</span>
+                            <div class="skill-bar"><div class="skill-progress" data-progress="90"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon"><i class="fas fa-wind"></i></div>
+                            <span class="skill-name">Tailwind CSS</span>
+                            <div class="skill-bar"><div class="skill-progress" data-progress="85"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon"><i class="fab fa-figma"></i></div>
+                            <span class="skill-name">Figma</span>
+                            <div class="skill-bar"><div class="skill-progress" data-progress="75"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon"><i class="fas fa-exchange-alt"></i></div>
+                            <span class="skill-name">REST APIs</span>
+                            <div class="skill-bar"><div class="skill-progress" data-progress="90"></div></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category reveal">
+                    <div class="skill-category-header">
+                        <i class="fas fa-lightbulb"></i>
+                        <h3 data-i18n="skills.concepts">Concepts & Patterns</h3>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag" data-i18n="skills.responsive">Responsive Design</span>
+                        <span class="skill-tag" data-i18n="skills.lazy">Lazy Loading</span>
+                        <span class="skill-tag" data-i18n="skills.state">State Management</span>
+                        <span class="skill-tag" data-i18n="skills.component">Component Architecture</span>
+                        <span class="skill-tag" data-i18n="skills.routing">Routing & Guards</span>
+                        <span class="skill-tag" data-i18n="skills.performance">Performance Optimization</span>
+                        <span class="skill-tag" data-i18n="skills.clean">Clean Code</span>
+                        <span class="skill-tag" data-i18n="skills.modular">Modular Architecture</span>
+                        <span class="skill-tag" data-i18n="skills.uiux">UI/UX Collaboration</span>
+                        <span class="skill-tag" data-i18n="skills.agile">Agile / Teamwork</span>
+                    </div>
+                </div>
+
+                <div class="skill-category reveal">
+                    <div class="skill-category-header">
+                        <i class="fas fa-server"></i>
+                        <h3 data-i18n="skills.backend">Backend (AI-Assisted)</h3>
+                    </div>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <div class="skill-icon"><i class="fab fa-php"></i></div>
+                            <span class="skill-name">PHP / Laravel</span>
+                            <div class="skill-bar"><div class="skill-progress" data-progress="65"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon"><i class="fas fa-database"></i></div>
+                            <span class="skill-name">MySQL</span>
+                            <div class="skill-bar"><div class="skill-progress" data-progress="70"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon"><i class="fas fa-robot"></i></div>
+                            <span class="skill-name" data-i18n="skills.aiDev">AI-Assisted Dev</span>
+                            <div class="skill-bar"><div class="skill-progress" data-progress="85"></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="section experience">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag" data-i18n="exp.tag">My journey</span>
+                <h2 class="section-title"><span data-i18n="exp.titleStart">Work</span> <span class="gradient-text" data-i18n="exp.titleEnd">Experience</span></h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"><i class="fas fa-briefcase"></i></div>
+                    <div class="timeline-content">
+                        <div class="timeline-badge" data-i18n="exp.current">Current Position</div>
+                        <h3 class="timeline-title" data-i18n="exp.role">Applications Developer</h3>
+                        <h4 class="timeline-company">
+                            <i class="fas fa-building"></i>
+                            It Plus Programming Solutions
+                        </h4>
+                        <span class="timeline-date">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span data-i18n="exp.date">September 2023 &mdash; Present</span>
+                        </span>
+                        <ul class="timeline-details">
+                            <li><i class="fas fa-check-circle"></i><span data-i18n="exp.d1">Developed responsive Angular applications and implemented state management using NgRx</span></li>
+                            <li><i class="fas fa-check-circle"></i><span data-i18n="exp.d2">Improved load performance by <strong>30%</strong> through lazy loading and code optimization</span></li>
+                            <li><i class="fas fa-check-circle"></i><span data-i18n="exp.d3">Collaborated with backend and UI/UX teams to enhance ERP systems</span></li>
+                            <li><i class="fas fa-check-circle"></i><span data-i18n="exp.d4">Maintained clean, modular, and scalable code following best practices</span></li>
+                            <li><i class="fas fa-check-circle"></i><span data-i18n="exp.d5">Built backend REST APIs using PHP with AI-assisted development tools</span></li>
+                        </ul>
+                        <div class="timeline-tech">
+                            <span>Angular</span><span>TypeScript</span><span>NgRx</span>
+                            <span>RxJS</span><span>SCSS</span><span>PHP</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot timeline-dot-secondary"><i class="fas fa-calculator"></i></div>
+                    <div class="timeline-content timeline-content-compact">
+                        <div class="timeline-badge timeline-badge-secondary" data-i18n="exp.prev">Previous Career</div>
+                        <h3 class="timeline-title" data-i18n="exp.accRole">Accounting & Financial Auditing</h3>
+                        <h4 class="timeline-company">
+                            <i class="fas fa-building"></i>
+                            <span data-i18n="exp.accCompany">Audit & Tax Accounting Firms</span>
+                        </h4>
+                        <span class="timeline-date">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span data-i18n="exp.accDate">2021 &mdash; 2023</span>
+                        </span>
+                        <p class="timeline-summary" data-i18n="exp.accSummary">Worked in corporate auditing, tax accounting, and e-invoicing with the Egyptian Tax Authority. This financial background strengthens my ability to build accurate, business-aware ERP and financial systems.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section projects">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag" data-i18n="proj.tag">What I've built</span>
+                <h2 class="section-title"><span data-i18n="proj.titleStart">Featured</span> <span class="gradient-text" data-i18n="proj.titleEnd">Projects</span></h2>
+                <div class="section-line"></div>
+            </div>
+
+            <div class="project-filters reveal">
+                <button class="filter-btn active" data-filter="all" data-i18n="proj.all">All Projects</button>
+                <button class="filter-btn" data-filter="erp" data-i18n="proj.erp">ERP Systems</button>
+                <button class="filter-btn" data-filter="web" data-i18n="proj.web">Websites</button>
+                <button class="filter-btn" data-filter="backend" data-i18n="proj.backend">Backend</button>
+            </div>
+
+            <div class="projects-grid">
+                <!-- Loom ERP -->
+                <div class="project-card reveal" data-category="erp">
+                    <div class="project-image">
+                        <div class="project-placeholder"><i class="fas fa-hard-hat"></i></div>
+                        <div class="project-overlay"><div class="project-links"><span class="project-link-tag">ERP System</span></div></div>
+                    </div>
+                    <div class="project-info">
+                        <span class="project-category" data-i18n="proj.loom.cat">Construction ERP</span>
+                        <h3 class="project-title">Loom ERP</h3>
+                        <p class="project-description" data-i18n="proj.loom.desc">Comprehensive construction management system covering HR, Projects, Clients, Contractors, Custodies, Invoices, and more. Full-stack with Angular frontend and PHP backend.</p>
+                        <div class="project-tech"><span>Angular</span><span>NgRx</span><span>PHP</span><span>MySQL</span><span>REST API</span></div>
+                    </div>
+                </div>
+
+                <!-- CLM -->
+                <div class="project-card reveal" data-category="erp">
+                    <div class="project-image">
+                        <div class="project-placeholder"><i class="fas fa-language"></i></div>
+                        <div class="project-overlay"><div class="project-links"><span class="project-link-tag">LMS/ERP</span></div></div>
+                    </div>
+                    <div class="project-info">
+                        <span class="project-category" data-i18n="proj.clm.cat">Education Platform</span>
+                        <h3 class="project-title" data-i18n="proj.clm.title">CLM - Language Education System</h3>
+                        <p class="project-description" data-i18n="proj.clm.desc">Comprehensive LMS/ERP supporting multi-role users with lecture scheduling, Zoom integration, and advanced educational content management.</p>
+                        <div class="project-tech"><span>Angular</span><span>TypeScript</span><span>RxJS</span><span>Zoom API</span></div>
+                    </div>
+                </div>
+
+                <!-- Testat -->
+                <div class="project-card reveal" data-category="erp">
+                    <div class="project-image">
+                        <div class="project-placeholder"><i class="fas fa-graduation-cap"></i></div>
+                        <div class="project-overlay"><div class="project-links"><span class="project-link-tag">ERP System</span></div></div>
+                    </div>
+                    <div class="project-info">
+                        <span class="project-category" data-i18n="proj.testat.cat">Education ERP</span>
+                        <h3 class="project-title" data-i18n="proj.testat.title">Testat App & Website</h3>
+                        <p class="project-description" data-i18n="proj.testat.desc">Educational ERP system for product and resource management. Built as both a web application and companion website with full admin capabilities.</p>
+                        <div class="project-tech"><span>Angular</span><span>TypeScript</span><span>SCSS</span><span>REST API</span></div>
+                    </div>
+                </div>
+
+                <!-- Ataa -->
+                <div class="project-card reveal" data-category="erp">
+                    <div class="project-image">
+                        <div class="project-placeholder"><i class="fas fa-school"></i></div>
+                        <div class="project-overlay"><div class="project-links"><span class="project-link-tag">ERP System</span></div></div>
+                    </div>
+                    <div class="project-info">
+                        <span class="project-category" data-i18n="proj.ataa.cat">Operations Planning</span>
+                        <h3 class="project-title" data-i18n="proj.ataa.title">Ataa Website & Admin</h3>
+                        <p class="project-description" data-i18n="proj.ataa.desc">ERP system for operational planning in education with comprehensive admin dashboard, PDF report generation, and strategic goal management.</p>
+                        <div class="project-tech"><span>Angular</span><span>NgRx</span><span>PHP</span><span>mPDF</span></div>
+                    </div>
+                </div>
+
+                <!-- YallaEshtary -->
+                <div class="project-card reveal" data-category="erp">
+                    <div class="project-image">
+                        <div class="project-placeholder"><i class="fas fa-shopping-cart"></i></div>
+                        <div class="project-overlay"><div class="project-links"><span class="project-link-tag">E-Commerce ERP</span></div></div>
+                    </div>
+                    <div class="project-info">
+                        <span class="project-category" data-i18n="proj.yalla.cat">E-Commerce Dashboard</span>
+                        <h3 class="project-title" data-i18n="proj.yalla.title">YallaEshtary Dashboard</h3>
+                        <p class="project-description" data-i18n="proj.yalla.desc">Major ERP dashboard enhancements including advanced delivery tracking with mapping/geographical zones and dynamic product management system.</p>
+                        <div class="project-tech"><span>Angular</span><span>Maps API</span><span>TypeScript</span><span>REST API</span></div>
+                    </div>
+                </div>
+
+                <!-- Abis -->
+                <div class="project-card reveal" data-category="erp web">
+                    <div class="project-image">
+                        <div class="project-placeholder"><i class="fas fa-store"></i></div>
+                        <div class="project-overlay"><div class="project-links"><span class="project-link-tag">E-Commerce</span></div></div>
+                    </div>
+                    <div class="project-info">
+                        <span class="project-category" data-i18n="proj.abis.cat">E-Commerce & Supply Chain</span>
+                        <h3 class="project-title">Abis-Hypermarket.com</h3>
+                        <p class="project-description" data-i18n="proj.abis.desc">ERP system for e-commerce and supply chain management. Handles product catalogs, inventory, orders, and logistics for a hypermarket chain.</p>
+                        <div class="project-tech"><span>Angular</span><span>SCSS</span><span>Bootstrap</span><span>REST API</span></div>
+                    </div>
+                </div>
+
+                <!-- Faainex -->
+                <div class="project-card reveal" data-category="web erp">
+                    <div class="project-image">
+                        <div class="project-placeholder"><i class="fas fa-building"></i></div>
+                        <div class="project-overlay"><div class="project-links"><span class="project-link-tag">Corporate ERP</span></div></div>
+                    </div>
+                    <div class="project-info">
+                        <span class="project-category" data-i18n="proj.faainex.cat">Corporate Website</span>
+                        <h3 class="project-title">Faainex</h3>
+                        <p class="project-description" data-i18n="proj.faainex.desc">Corporate ERP website with full admin tools for managing business operations, content, and corporate communications.</p>
+                        <div class="project-tech"><span>Angular</span><span>TypeScript</span><span>Tailwind</span><span>REST API</span></div>
+                    </div>
+                </div>
+
+                <!-- EPM -->
+                <div class="project-card reveal" data-category="web">
+                    <div class="project-image">
+                        <div class="project-placeholder"><i class="fas fa-cogs"></i></div>
+                        <div class="project-overlay"><div class="project-links"><span class="project-link-tag">Portfolio Site</span></div></div>
+                    </div>
+                    <div class="project-info">
+                        <span class="project-category" data-i18n="proj.epm.cat">Dynamic Portfolio</span>
+                        <h3 class="project-title" data-i18n="proj.epm.title">EPM - Printing Machinery</h3>
+                        <p class="project-description" data-i18n="proj.epm.desc">Dynamic portfolio website integrated with an Admin Dashboard for managing equipment listings and project showcases for a printing machinery company.</p>
+                        <div class="project-tech"><span>Angular</span><span>SCSS</span><span>Admin Panel</span><span>REST API</span></div>
+                    </div>
+                </div>
+
+                <!-- Stride -->
+                <div class="project-card reveal" data-category="erp">
+                    <div class="project-image">
+                        <div class="project-placeholder"><i class="fas fa-paint-roller"></i></div>
+                        <div class="project-overlay"><div class="project-links"><span class="project-link-tag">CMS</span></div></div>
+                    </div>
+                    <div class="project-info">
+                        <span class="project-category" data-i18n="proj.stride.cat">Construction CMS</span>
+                        <h3 class="project-title" data-i18n="proj.stride.title">Stride - Construction Finishes</h3>
+                        <p class="project-description" data-i18n="proj.stride.desc">Administrative CMS specialized in tracking and managing construction finishes projects and workflows with detailed progress monitoring.</p>
+                        <div class="project-tech"><span>Angular</span><span>TypeScript</span><span>NgRx</span><span>REST API</span></div>
+                    </div>
+                </div>
+
+                <!-- Backend: It Plus -->
+                <div class="project-card reveal" data-category="backend">
+                    <div class="project-image">
+                        <div class="project-placeholder backend-placeholder"><i class="fas fa-server"></i></div>
+                        <div class="project-overlay"><div class="project-links"><span class="project-link-tag">Backend API</span></div></div>
+                    </div>
+                    <div class="project-info">
+                        <span class="project-category" data-i18n="proj.itplusbe.cat">Backend Development</span>
+                        <h3 class="project-title" data-i18n="proj.itplusbe.title">It Plus Backend API</h3>
+                        <p class="project-description" data-i18n="proj.itplusbe.desc">Laravel-based backend API with real-time features (WebSockets), email integration, and comprehensive testing suite for the It Plus ERP platform.</p>
+                        <div class="project-tech"><span>PHP</span><span>Laravel</span><span>MySQL</span><span>WebSockets</span><span>AI-Assisted</span></div>
+                    </div>
+                </div>
+
+                <!-- Backend: Ops & Loom -->
+                <div class="project-card reveal" data-category="backend">
+                    <div class="project-image">
+                        <div class="project-placeholder backend-placeholder"><i class="fas fa-database"></i></div>
+                        <div class="project-overlay"><div class="project-links"><span class="project-link-tag">Backend API</span></div></div>
+                    </div>
+                    <div class="project-info">
+                        <span class="project-category" data-i18n="proj.opsbe.cat">Backend Development</span>
+                        <h3 class="project-title" data-i18n="proj.opsbe.title">Ops & Loom Backend APIs</h3>
+                        <p class="project-description" data-i18n="proj.opsbe.desc">PHP backend systems with JWT authentication, RESTful endpoints, PDF generation (mPDF), notification systems, and comprehensive database management.</p>
+                        <div class="project-tech"><span>PHP</span><span>JWT</span><span>MySQL</span><span>mPDF</span><span>AI-Assisted</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications" class="section certifications">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag" data-i18n="cert.tag">Education & Certificates</span>
+                <h2 class="section-title"><span data-i18n="cert.titleStart">Certifications &</span> <span class="gradient-text" data-i18n="cert.titleEnd">Education</span></h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="cert-grid">
+                <div class="cert-card reveal">
+                    <div class="cert-icon"><i class="fas fa-graduation-cap"></i></div>
+                    <div class="cert-info">
+                        <h3 data-i18n="cert.degree">Bachelor of Commerce</h3>
+                        <p class="cert-org" data-i18n="cert.uni">Helwan University</p>
+                        <span class="cert-detail" data-i18n="cert.dept">Accounting Department &bull; Class of 2021</span>
+                    </div>
+                </div>
+                <div class="cert-card reveal">
+                    <div class="cert-icon cert-icon-orange"><i class="fas fa-certificate"></i></div>
+                    <div class="cert-info">
+                        <h3 data-i18n="cert.frontend">Frontend Development</h3>
+                        <p class="cert-org">Root Academy</p>
+                        <span class="cert-detail" data-i18n="cert.profCert">Professional Certificate</span>
+                    </div>
+                </div>
+                <div class="cert-card reveal">
+                    <div class="cert-icon cert-icon-red"><i class="fab fa-angular"></i></div>
+                    <div class="cert-info">
+                        <h3 data-i18n="cert.angular">Angular Development</h3>
+                        <p class="cert-org">Information Technology Academy</p>
+                        <span class="cert-detail" data-i18n="cert.specCert">Specialized Certificate</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section contact">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag" data-i18n="contact.tag">Let's connect</span>
+                <h2 class="section-title"><span data-i18n="contact.titleStart">Get In</span> <span class="gradient-text" data-i18n="contact.titleEnd">Touch</span></h2>
+                <div class="section-line"></div>
+                <p class="section-subtitle" data-i18n="contact.subtitle">I'm always open to new opportunities and interesting projects. Feel free to reach out!</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-cards">
+                    <a href="mailto:mohamedalsayidahmed@gmail.com" class="contact-card reveal">
+                        <div class="contact-card-icon"><i class="fas fa-envelope"></i></div>
+                        <div class="contact-card-info">
+                            <h3 data-i18n="contact.email">Email</h3>
+                            <p>mohamedalsayidahmed@gmail.com</p>
+                        </div>
+                        <i class="fas fa-arrow-right contact-arrow"></i>
+                    </a>
+                    <a href="tel:+201156352207" class="contact-card reveal">
+                        <div class="contact-card-icon"><i class="fas fa-phone-alt"></i></div>
+                        <div class="contact-card-info">
+                            <h3 data-i18n="contact.phone">Phone</h3>
+                            <p>+20 115 635 2207</p>
+                        </div>
+                        <i class="fas fa-arrow-right contact-arrow"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/mohamed-mahmoud-957731222/" target="_blank" rel="noopener" class="contact-card reveal">
+                        <div class="contact-card-icon linkedin-icon"><i class="fab fa-linkedin-in"></i></div>
+                        <div class="contact-card-info">
+                            <h3>LinkedIn</h3>
+                            <p>mohamed-mahmoud</p>
+                        </div>
+                        <i class="fas fa-arrow-right contact-arrow"></i>
+                    </a>
+                    <a href="https://wa.me/201156352207" target="_blank" rel="noopener" class="contact-card reveal">
+                        <div class="contact-card-icon whatsapp-icon"><i class="fab fa-whatsapp"></i></div>
+                        <div class="contact-card-info">
+                            <h3>WhatsApp</h3>
+                            <p>+20 115 635 2207</p>
+                        </div>
+                        <i class="fas fa-arrow-right contact-arrow"></i>
+                    </a>
+                </div>
+                <div class="contact-form-wrapper reveal">
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" required placeholder=" ">
+                            <label for="name" data-i18n="contact.yourName">Your Name</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" required placeholder=" ">
+                            <label for="email" data-i18n="contact.yourEmail">Your Email</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="subject" name="subject" required placeholder=" ">
+                            <label for="subject" data-i18n="contact.subject">Subject</label>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" rows="5" required placeholder=" "></textarea>
+                            <label for="message" data-i18n="contact.yourMessage">Your Message</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-submit">
+                            <span data-i18n="contact.send">Send Message</span>
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <span class="logo-bracket">&lt;</span>ME<span class="logo-bracket">/&gt;</span>
+                </div>
+                <p class="footer-text" data-i18n="footer.text">Designed & Built by Mohamed Elsayed</p>
+                <div class="footer-socials">
+                    <a href="mailto:mohamedalsayidahmed@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                    <a href="https://www.linkedin.com/in/mohamed-mahmoud-957731222/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="tel:+201156352207" aria-label="Phone"><i class="fas fa-phone-alt"></i></a>
+                    <a href="https://wa.me/201156352207" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                </div>
+                <p class="footer-copyright">&copy; 2026 Mohamed Elsayed. <span data-i18n="footer.rights">All rights reserved.</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>
