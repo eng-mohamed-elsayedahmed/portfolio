@@ -126,6 +126,7 @@ html {
     scroll-behavior: smooth;
     scroll-padding-top: 80px;
     font-size: 16px;
+    overflow-x: hidden;
 }
 
 body {
@@ -1655,15 +1656,15 @@ ul { list-style: none; }
 /* ---- Back to Top ---- */
 .back-to-top {
     position: fixed;
-    bottom: 30px;
-    right: 30px;
-    width: 48px;
-    height: 48px;
+    bottom: 20px;
+    right: 20px;
+    width: 44px;
+    height: 44px;
     background: var(--gradient-primary);
     border: none;
     border-radius: var(--radius-sm);
     color: white;
-    font-size: 1.1rem;
+    font-size: 1rem;
     cursor: pointer;
     z-index: 100;
     opacity: 0;
@@ -1675,7 +1676,7 @@ ul { list-style: none; }
 
 [dir="rtl"] .back-to-top {
     right: auto;
-    left: 30px;
+    left: 20px;
 }
 
 .back-to-top.visible {

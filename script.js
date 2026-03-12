@@ -591,30 +591,57 @@ function initProjectFilters() {
   });
 }
 
-// ---- Contact Form ----
+// ---- Contact Form (Web3Forms Email + WhatsApp) ----
+const WEB3FORMS_KEY = 'YOUR_ACCESS_KEY'; // Replace with your Web3Forms access key
+
 function initContactForm() {
   const form = document.getElementById('contactForm');
   if (!form) return;
 
-  form.addEventListener('submit', (e) => {
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
     const name = document.getElementById('name').value;
     const email = document.getElementById('email').value;
     const subject = document.getElementById('subject').value;
     const message = document.getElementById('message').value;
-
-    // Create mailto link
-    const mailtoLink = `mailto:mohamedalsayidahmed@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`From: ${name}\nEmail: ${email}\n\n${message}`)}`;
-    window.location.href = mailtoLink;
-
-    // Show success feedback
     const btn = form.querySelector('.btn-submit');
     const originalText = btn.innerHTML;
+
+    // Loading state
+    btn.innerHTML = currentLang === 'ar'
+      ? '<span>جاري الإرسال...</span> <i class="fas fa-spinner fa-spin"></i>'
+      : '<span>Sending...</span> <i class="fas fa-spinner fa-spin"></i>';
+    btn.disabled = true;
+
+    // 1) Send email via Web3Forms
+    try {
+      await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_KEY,
+          name,
+          email,
+          subject,
+          message,
+          from_name: 'Portfolio Contact Form'
+        })
+      });
+    } catch (err) {
+      console.warn('Email send failed:', err);
+    }
+
+    // 2) Open WhatsApp with message
+    const waText = `Hello Mohamed, I'm *${name}*\nEmail: ${email}\n\n*${subject}*\n${message}`;
+    window.open(`https://wa.me/201156352207?text=${encodeURIComponent(waText)}`, '_blank');
+
+    // Success feedback
     btn.innerHTML = currentLang === 'ar'
       ? '<span>تم الإرسال!</span> <i class="fas fa-check"></i>'
       : '<span>Message Sent!</span> <i class="fas fa-check"></i>';
     btn.style.background = 'linear-gradient(135deg, #34d399, #059669)';
+    btn.disabled = false;
 
     setTimeout(() => {
       btn.innerHTML = originalText;
