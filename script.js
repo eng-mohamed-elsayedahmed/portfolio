@@ -591,7 +591,7 @@ function initProjectFilters() {
   });
 }
 
-// ---- Contact Form (Web3Forms Email + WhatsApp) ----
+// ---- Contact Form (Web3Forms Email) ----
 const WEB3FORMS_KEY = '4242e461-4080-407c-a1c9-4ac858fbed33';
 
 function initContactForm() {
@@ -614,9 +614,9 @@ function initContactForm() {
       : '<span>Sending...</span> <i class="fas fa-spinner fa-spin"></i>';
     btn.disabled = true;
 
-    // 1) Send email via Web3Forms
+    // Send email via Web3Forms
     try {
-      await fetch('https://api.web3forms.com/submit', {
+      const res = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -628,19 +628,28 @@ function initContactForm() {
           from_name: 'Portfolio Contact Form'
         })
       });
+      const data = await res.json();
+
+      if (data.success) {
+        btn.innerHTML = currentLang === 'ar'
+          ? '<span>تم الإرسال بنجاح!</span> <i class="fas fa-check"></i>'
+          : '<span>Message Sent!</span> <i class="fas fa-check"></i>';
+        btn.style.background = 'linear-gradient(135deg, #34d399, #059669)';
+        form.reset();
+      } else {
+        btn.innerHTML = currentLang === 'ar'
+          ? '<span>حدث خطأ، حاول مرة أخرى</span> <i class="fas fa-times"></i>'
+          : '<span>Error, try again</span> <i class="fas fa-times"></i>';
+        btn.style.background = 'linear-gradient(135deg, #ef4444, #dc2626)';
+      }
     } catch (err) {
-      console.warn('Email send failed:', err);
+      btn.innerHTML = currentLang === 'ar'
+        ? '<span>حدث خطأ، حاول مرة أخرى</span> <i class="fas fa-times"></i>'
+        : '<span>Error, try again</span> <i class="fas fa-times"></i>';
+      btn.style.background = 'linear-gradient(135deg, #ef4444, #dc2626)';
     }
 
-    // 2) Open WhatsApp with message
-    const waText = `Hello Mohamed, I'm *${name}*\nEmail: ${email}\n\n*${subject}*\n${message}`;
-    window.open(`https://wa.me/201156352207?text=${encodeURIComponent(waText)}`, '_blank');
-
-    // Success feedback
-    btn.innerHTML = currentLang === 'ar'
-      ? '<span>تم الإرسال!</span> <i class="fas fa-check"></i>'
-      : '<span>Message Sent!</span> <i class="fas fa-check"></i>';
-    btn.style.background = 'linear-gradient(135deg, #34d399, #059669)';
+    btn.disabled = false;
     btn.disabled = false;
 
     setTimeout(() => {
