@@ -423,6 +423,8 @@ ul { list-style: none; }
     display: inline-block;
     animation: wave 2.5s infinite;
     transform-origin: 70% 70%;
+    opacity: 0.55;
+    filter: grayscale(30%);
 }
 
 @keyframes wave {
@@ -1005,8 +1007,8 @@ ul { list-style: none; }
     color: var(--accent-primary);
 }
 
-.skill-icon.rxjs-icon { color: #b7178c; }
-.skill-icon.ngrx-icon { color: #ba2bd2; }
+.skill-icon.rxjs-icon,
+.skill-icon.ngrx-icon { color: var(--accent-primary); }
 
 .skill-name {
     font-size: 0.88rem;
@@ -1157,11 +1159,9 @@ ul { list-style: none; }
     color: var(--accent-primary);
 }
 
-.company-logo {
-    width: 24px;
-    height: 24px;
-    object-fit: contain;
-    border-radius: 4px;
+.company-link i {
+    font-size: 1rem;
+    color: var(--accent-primary);
 }
 
 .timeline-date {
