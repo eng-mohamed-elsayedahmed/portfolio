@@ -346,6 +346,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initSkillBars();
   initCountUp();
   initProjectFilters();
+  initProjectModal();
+  initImageFallbacks();
   initContactForm();
   initBackToTop();
   initParticles();
@@ -597,6 +599,146 @@ function initProjectFilters() {
         }
       });
     });
+  });
+}
+
+// ---- Project Modal ----
+function initProjectModal() {
+  const modal = document.getElementById('projectModal');
+  const modalImage = document.getElementById('modalImage');
+  const modalTitle = document.getElementById('modalTitle');
+  const modalCategory = document.getElementById('modalCategory');
+  const modalDescription = document.getElementById('modalDescription');
+  const modalTech = document.getElementById('modalTech');
+  const modalLiveBtn = document.getElementById('modalLiveBtn');
+  const modalClose = document.getElementById('modalClose');
+  const modalBackdrop = document.getElementById('modalBackdrop');
+  const imageLoader = modal.querySelector('.modal-image-loader');
+  const imageFallback = modal.querySelector('.modal-image-fallback');
+  if (!modal) return;
+
+  // Fallback text based on language
+  function fallbackText() {
+    return currentLang === 'ar' ? 'لا توجد معاينة' : 'No Preview Available';
+  }
+
+  function openModal(card) {
+    const title = card.querySelector('.project-title')?.textContent || '';
+    const category = card.querySelector('.project-category')?.textContent || '';
+    const desc = card.querySelector('.project-description')?.textContent || '';
+    const techSpans = card.querySelectorAll('.project-tech span');
+    const img = card.querySelector('.project-image img');
+    const liveUrl = card.dataset.live;
+
+    // Populate modal
+    modalTitle.textContent = title;
+    modalCategory.textContent = category;
+    modalDescription.textContent = desc;
+
+    // Tech tags
+    modalTech.innerHTML = '';
+    techSpans.forEach(t => {
+      const span = document.createElement('span');
+      span.textContent = t.textContent;
+      modalTech.appendChild(span);
+    });
+
+    // Live button
+    if (liveUrl) {
+      modalLiveBtn.href = liveUrl;
+      modalLiveBtn.style.display = 'inline-flex';
+      modalLiveBtn.querySelector('span').textContent = currentLang === 'ar' ? 'زيارة الموقع' : 'Visit Live Site';
+    } else {
+      modalLiveBtn.style.display = 'none';
+    }
+
+    // Image handling
+    imageLoader.classList.remove('hidden');
+    imageFallback.classList.remove('visible');
+    imageFallback.querySelector('span').textContent = fallbackText();
+    modalImage.classList.remove('loaded', 'error');
+
+    if (img && img.src && !img.classList.contains('img-error')) {
+      modalImage.src = img.src;
+      modalImage.alt = img.alt || title;
+
+      modalImage.onload = () => {
+        modalImage.classList.add('loaded');
+        imageLoader.classList.add('hidden');
+      };
+
+      modalImage.onerror = () => {
+        modalImage.classList.add('error');
+        imageLoader.classList.add('hidden');
+        imageFallback.classList.add('visible');
+      };
+    } else {
+      // No image (placeholder card)
+      modalImage.src = '';
+      modalImage.classList.add('error');
+      imageLoader.classList.add('hidden');
+      imageFallback.classList.add('visible');
+    }
+
+    // Show modal
+    modal.classList.add('active');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    modal.classList.remove('active');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  // Click on project cards
+  document.querySelectorAll('.project-card[role="button"]').forEach(card => {
+    card.addEventListener('click', (e) => {
+      // Don't open modal if clicking on a live site link
+      if (e.target.closest('a.project-link-tag')) return;
+      openModal(card);
+    });
+    card.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        openModal(card);
+      }
+    });
+  });
+
+  // Close modal
+  modalClose.addEventListener('click', closeModal);
+  modalBackdrop.addEventListener('click', closeModal);
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.classList.contains('active')) closeModal();
+  });
+}
+
+// ---- Broken Image Handler ----
+function initImageFallbacks() {
+  document.querySelectorAll('.project-image img').forEach(img => {
+    img.addEventListener('error', function() {
+      this.classList.add('img-error');
+      this.style.display = 'none';
+      // Show the placeholder if exists as sibling
+      const placeholder = this.parentElement.querySelector('.project-placeholder');
+      if (placeholder) {
+        placeholder.style.display = 'flex';
+      } else {
+        // Create inline fallback
+        const fallback = document.createElement('div');
+        fallback.className = 'project-placeholder';
+        fallback.setAttribute('aria-hidden', 'true');
+        fallback.innerHTML = '<i class="fas fa-image"></i>';
+        this.parentElement.insertBefore(fallback, this);
+      }
+    });
+
+    // If image was already broken before listener attached
+    if (img.complete && img.naturalWidth === 0 && img.src) {
+      img.dispatchEvent(new Event('error'));
+    }
   });
 }
 

@@ -1433,6 +1433,199 @@ a.project-link-tag i {
     color: var(--accent-secondary);
 }
 
+/* ---- Project Modal ---- */
+.project-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+}
+
+.project-modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(8px);
+}
+
+.modal-container {
+    position: relative;
+    width: 90%;
+    max-width: 800px;
+    max-height: 90vh;
+    background: var(--bg-card);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-color);
+    overflow-y: auto;
+    transform: translateY(30px) scale(0.95);
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: var(--shadow-lg);
+}
+
+.project-modal.active .modal-container {
+    transform: translateY(0) scale(1);
+}
+
+.modal-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-full);
+    background: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: white;
+    font-size: 1.1rem;
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+}
+
+[dir="rtl"] .modal-close {
+    right: auto;
+    left: 16px;
+}
+
+.modal-close:hover {
+    background: rgba(0, 0, 0, 0.8);
+    transform: rotate(90deg);
+}
+
+.modal-image-wrapper {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    background: var(--bg-secondary);
+    overflow: hidden;
+}
+
+.modal-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: opacity 0.3s;
+}
+
+.modal-image-wrapper img.loaded {
+    opacity: 1;
+}
+
+.modal-image-wrapper img.error {
+    opacity: 0;
+    position: absolute;
+}
+
+.modal-image-loader {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: var(--accent-primary);
+    transition: opacity 0.3s;
+}
+
+.modal-image-loader.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.modal-image-fallback {
+    position: absolute;
+    inset: 0;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    color: var(--text-tertiary);
+    font-size: 1rem;
+}
+
+.modal-image-fallback i {
+    font-size: 3rem;
+    opacity: 0.5;
+}
+
+.modal-image-fallback.visible {
+    display: flex;
+}
+
+.modal-body {
+    padding: 28px 32px 32px;
+}
+
+.modal-category {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--accent-secondary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.modal-title {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 8px 0 16px;
+}
+
+.modal-description {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.modal-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 24px;
+}
+
+.modal-tech span {
+    padding: 4px 14px;
+    background: var(--accent-glow);
+    color: var(--accent-secondary);
+    border-radius: var(--radius-full);
+    font-size: 0.82rem;
+    font-weight: 500;
+}
+
+.modal-actions {
+    display: flex;
+    gap: 12px;
+}
+
+.modal-live-btn {
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Make project cards show pointer cursor */
+.project-card[role="button"] {
+    cursor: pointer;
+}
+
 /* ---- Certifications Section ---- */
 .cert-grid {
     display: grid;
@@ -1843,6 +2036,12 @@ a.project-link-tag i {
 
     .projects-grid { grid-template-columns: 1fr; }
     .about-info-cards { grid-template-columns: 1fr; }
+
+    .modal-container { width: 95%; max-height: 95vh; border-radius: var(--radius-md); }
+    .modal-image-wrapper { height: 200px; }
+    .modal-body { padding: 20px; }
+    .modal-title { font-size: 1.3rem; }
+    .modal-description { font-size: 0.9rem; }
 
     .skill-item { grid-template-columns: 32px 90px 1fr; gap: 8px; }
     .skill-icon { width: 32px; height: 32px; font-size: 0.9rem; }
