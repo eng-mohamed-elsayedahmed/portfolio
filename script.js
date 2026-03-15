@@ -501,6 +501,15 @@ function initMobileNav() {
       menu.classList.remove('active');
     }
   });
+
+  // Close on Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && menu.classList.contains('active')) {
+      toggle.classList.remove('active');
+      menu.classList.remove('active');
+      toggle.focus();
+    }
+  });
 }
 
 // ---- Scroll Animations ----

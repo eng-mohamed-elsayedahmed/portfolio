@@ -35,7 +35,7 @@
 
     --text-primary: #f0f0f5;
     --text-secondary: #a0a0b4;
-    --text-tertiary: #6b6b80;
+    --text-tertiary: #8585a0;
 
     --accent-primary: #6366f1;
     --accent-secondary: #818cf8;
@@ -136,6 +136,32 @@ body {
     line-height: 1.7;
     overflow-x: hidden;
     transition: background-color var(--transition), color var(--transition);
+}
+
+/* Skip Link (Accessibility) */
+.skip-link {
+    position: absolute;
+    top: -100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--accent-primary);
+    color: white;
+    padding: 12px 24px;
+    border-radius: var(--radius-sm);
+    z-index: 10000;
+    font-weight: 600;
+    text-decoration: none;
+    transition: top 0.2s;
+}
+.skip-link:focus {
+    top: 10px;
+}
+
+/* Focus Visible (Accessibility) */
+*:focus-visible {
+    outline: 2px solid var(--accent-primary);
+    outline-offset: 3px;
+    border-radius: 2px;
 }
 
 /* Arabic Font */
