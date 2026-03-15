@@ -15,7 +15,6 @@ const translations = {
     "nav.contact": "Contact",
 
     // Hero
-    "hero.badge": "Available for opportunities",
     "hero.greeting": "Hi, I'm",
     "hero.description": 'Passionate Frontend Developer with <strong>2+ years</strong> of experience building scalable web applications using <strong>Angular</strong>. I craft clean, performant, and user-friendly interfaces for complex business systems.',
     "hero.viewWork": "View My Work",
@@ -169,7 +168,6 @@ const translations = {
     "nav.contact": "تواصل معي",
 
     // Hero
-    "hero.badge": "متاح لفرص العمل",
     "hero.greeting": "مرحباً، أنا",
     "hero.description": 'مطور واجهات أمامية شغوف بخبرة تزيد عن <strong>سنتين</strong> في بناء تطبيقات ويب قابلة للتوسع باستخدام <strong>Angular</strong>. أقوم بإنشاء واجهات نظيفة وسريعة وسهلة الاستخدام لأنظمة الأعمال المعقدة.',
     "hero.viewWork": "شاهد أعمالي",
@@ -445,30 +443,36 @@ function initNavbar() {
   const navLinks = document.querySelectorAll('.nav-link');
   const sections = document.querySelectorAll('.section, .hero');
 
+  let scrollTicking = false;
   window.addEventListener('scroll', () => {
-    // Navbar background
-    if (window.scrollY > 50) {
-      navbar.classList.add('scrolled');
-    } else {
-      navbar.classList.remove('scrolled');
-    }
-
-    // Active nav link
-    let current = '';
-    sections.forEach(section => {
-      const sectionTop = section.offsetTop - 100;
-      if (window.scrollY >= sectionTop) {
-        current = section.getAttribute('id');
+    if (scrollTicking) return;
+    scrollTicking = true;
+    requestAnimationFrame(() => {
+      // Navbar background
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
       }
-    });
 
-    navLinks.forEach(link => {
-      link.classList.remove('active');
-      if (link.getAttribute('href') === '#' + current) {
-        link.classList.add('active');
-      }
+      // Active nav link
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 100;
+        if (window.scrollY >= sectionTop) {
+          current = section.getAttribute('id');
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + current) {
+          link.classList.add('active');
+        }
+      });
+      scrollTicking = false;
     });
-  });
+  }, { passive: true });
 
   // Smooth scroll for nav links
   navLinks.forEach(link => {
@@ -605,6 +609,7 @@ function initProjectFilters() {
 // ---- Project Modal ----
 function initProjectModal() {
   const modal = document.getElementById('projectModal');
+  if (!modal) return;
   const modalImage = document.getElementById('modalImage');
   const modalTitle = document.getElementById('modalTitle');
   const modalCategory = document.getElementById('modalCategory');
@@ -615,7 +620,6 @@ function initProjectModal() {
   const modalBackdrop = document.getElementById('modalBackdrop');
   const imageLoader = modal.querySelector('.modal-image-loader');
   const imageFallback = modal.querySelector('.modal-image-fallback');
-  if (!modal) return;
 
   // Fallback text based on language
   function fallbackText() {
@@ -800,13 +804,10 @@ function initContactForm() {
       btn.style.background = 'linear-gradient(135deg, #ef4444, #dc2626)';
     }
 
-    btn.disabled = false;
-    btn.disabled = false;
-
     setTimeout(() => {
       btn.innerHTML = originalText;
       btn.style.background = '';
-      form.reset();
+      btn.disabled = false;
     }, 3000);
   });
 }
@@ -821,7 +822,7 @@ function initBackToTop() {
     } else {
       btn.classList.remove('visible');
     }
-  });
+  }, { passive: true });
 
   btn.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -829,6 +830,7 @@ function initBackToTop() {
 }
 
 // ---- Particles ----
+let _particleResizeHandler = null;
 function initParticles() {
   const canvas = document.getElementById('particles');
   const ctx = canvas.getContext('2d');
@@ -841,7 +843,7 @@ function initParticles() {
   const lineColor = isDark ? 'rgba(99, 102, 241, 0.08)' : 'rgba(79, 70, 229, 0.05)';
 
   const particles = [];
-  const particleCount = Math.min(60, Math.floor(window.innerWidth / 20));
+  const particleCount = Math.min(50, Math.floor(window.innerWidth / 25));
 
   for (let i = 0; i < particleCount; i++) {
     particles.push({
@@ -853,8 +855,13 @@ function initParticles() {
     });
   }
 
-  let animId;
+  // Cancel previous animation if exists
+  if (window._particleAnimId) cancelAnimationFrame(window._particleAnimId);
+
+  let isVisible = true;
   function animate() {
+    if (!isVisible) { window._particleAnimId = requestAnimationFrame(animate); return; }
+
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     particles.forEach((p, i) => {
@@ -885,19 +892,23 @@ function initParticles() {
       }
     });
 
-    animId = requestAnimationFrame(animate);
+    window._particleAnimId = requestAnimationFrame(animate);
   }
 
-  // Cancel previous animation if exists
-  if (window._particleAnimId) cancelAnimationFrame(window._particleAnimId);
   animate();
-  window._particleAnimId = animId;
 
-  // Resize
-  window.addEventListener('resize', () => {
+  // Pause when tab is hidden
+  document.addEventListener('visibilitychange', () => {
+    isVisible = !document.hidden;
+  });
+
+  // Remove old resize handler, add new one
+  if (_particleResizeHandler) window.removeEventListener('resize', _particleResizeHandler);
+  _particleResizeHandler = () => {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
-  });
+  };
+  window.addEventListener('resize', _particleResizeHandler);
 }
 
 // ---- Cursor Glow ----
