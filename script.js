@@ -842,8 +842,11 @@ function initParticles() {
   const particleColor = isDark ? 'rgba(99, 102, 241, 0.3)' : 'rgba(79, 70, 229, 0.15)';
   const lineColor = isDark ? 'rgba(99, 102, 241, 0.08)' : 'rgba(79, 70, 229, 0.05)';
 
+  const isMobile = window.innerWidth < 768;
+  if (isMobile) { canvas.style.display = 'none'; return; }
+
   const particles = [];
-  const particleCount = Math.min(50, Math.floor(window.innerWidth / 25));
+  const particleCount = Math.min(40, Math.floor(window.innerWidth / 30));
 
   for (let i = 0; i < particleCount; i++) {
     particles.push({
