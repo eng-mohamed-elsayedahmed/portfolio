@@ -962,14 +962,12 @@ function initBadgeRepel() {
         const moveY = Math.sin(angle) * force;
 
         badge.classList.add('repelled');
-        badge.style.translate = `${moveX}px ${moveY}px`;
-        badge.style.scale = '1.2';
+        badge.style.transform = `translate(${moveX}px, ${moveY}px) scale(1.2)`;
 
         if (badge._resetTimer) clearTimeout(badge._resetTimer);
 
         badge._resetTimer = setTimeout(() => {
-          badge.style.translate = '0 0';
-          badge.style.scale = '1';
+          badge.style.transform = '';
           setTimeout(() => {
             badge.classList.remove('repelled');
           }, 350);
