@@ -700,15 +700,16 @@ ul { list-style: none; }
 }
 
 @keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-15px); }
+    0%, 100% { margin-top: 0; }
+    50% { margin-top: -15px; }
 }
 
 /* Repel effect */
 .floating-badge[data-repel] {
-    transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+    transition: translate 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), scale 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
     cursor: default;
-    will-change: transform;
+    translate: 0 0;
+    scale: 1;
 }
 
 .floating-badge[data-repel].repelled {
