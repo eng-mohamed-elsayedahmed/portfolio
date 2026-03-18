@@ -154,7 +154,7 @@ const translations = {
     "contact.send": "Send Message",
 
     // Footer
-    "footer.text": "Designed & Built by Mohamed Elsayed",
+    "footer.text": "Designed & Built by Mohamed Mahmoud Elsayed Ahmed",
     "footer.rights": "All rights reserved."
   },
 
@@ -307,7 +307,7 @@ const translations = {
     "contact.send": "إرسال الرسالة",
 
     // Footer
-    "footer.text": "تصميم وبناء محمد السيد",
+    "footer.text": "تصميم وبناء محمد محمود السيد أحمد",
     "footer.rights": "جميع الحقوق محفوظة."
   }
 };
