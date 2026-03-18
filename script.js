@@ -92,22 +92,22 @@ const translations = {
 
     "proj.clm.cat": "Education Platform",
     "proj.clm.title": "CLM - Language Education System",
-    "proj.clm.desc": "Comprehensive LMS/ERP supporting multi-role users with lecture scheduling, Zoom integration, and advanced educational content management.",
+    "proj.clm.desc": "Comprehensive LMS/ERP supporting multi-role users with lecture scheduling, Zoom integration, course management, payments, and subscription handling.",
 
     "proj.testat.cat": "Education ERP",
     "proj.testat.title": "Testat App & Website",
-    "proj.testat.desc": "Educational ERP system for product and resource management. Built as both a web application and companion website with full admin capabilities.",
+    "proj.testat.desc": "Educational ERP system for product/resource management. Enables teachers to create exams, print Bubble Sheets, and auto-grade with instant results and performance analytics.",
 
     "proj.ataa.cat": "Operations Planning",
     "proj.ataa.title": "Ataa Website & Admin",
-    "proj.ataa.desc": "ERP system for operational planning in education with comprehensive admin dashboard, PDF report generation, and strategic goal management.",
+    "proj.ataa.desc": "ERP for operational planning in education with NgRx state management, admin dashboard, PDF report generation, and strategic goal management.",
 
     "proj.yalla.cat": "E-Commerce Dashboard",
     "proj.yalla.title": "YallaEshtary Dashboard",
-    "proj.yalla.desc": "Major ERP dashboard enhancements including advanced delivery tracking with mapping/geographical zones and dynamic product management system.",
+    "proj.yalla.desc": "Major ERP dashboard enhancements, including advanced delivery tracking with mapping/geographical zones and dynamic product management.",
 
     "proj.abis.cat": "E-Commerce & Supply Chain",
-    "proj.abis.desc": "ERP system for e-commerce and supply chain management. Handles product catalogs, inventory, orders, and logistics for a hypermarket chain.",
+    "proj.abis.desc": "ERP for e-commerce and supply chain management. Handles product catalogs, inventory, orders, and logistics for a hypermarket chain.",
 
     "proj.faainex.cat": "Corporate Website",
     "proj.faainex.desc": "Corporate ERP website with full admin tools for managing business operations, content, and corporate communications.",
@@ -245,11 +245,11 @@ const translations = {
 
     "proj.clm.cat": "منصة تعليمية",
     "proj.clm.title": "CLM - نظام تعليم اللغات",
-    "proj.clm.desc": "نظام LMS/ERP شامل يدعم مستخدمين متعددي الأدوار مع جدولة المحاضرات وتكامل Zoom وإدارة محتوى تعليمي متقدم.",
+    "proj.clm.desc": "نظام LMS/ERP شامل يدعم مستخدمين متعددي الأدوار مع جدولة المحاضرات وتكامل Zoom وإدارة الدورات والمدفوعات والاشتراكات.",
 
     "proj.testat.cat": "نظام ERP تعليمي",
     "proj.testat.title": "تطبيق وموقع تستات",
-    "proj.testat.desc": "نظام ERP تعليمي لإدارة المنتجات والموارد. تم بناؤه كتطبيق ويب وموقع مرافق مع إمكانيات إدارية كاملة.",
+    "proj.testat.desc": "نظام ERP تعليمي لإدارة المنتجات والموارد. يمكّن المعلمين من إنشاء اختبارات وطباعة Bubble Sheets والتصحيح التلقائي مع نتائج فورية وتحليلات أداء.",
 
     "proj.ataa.cat": "تخطيط العمليات",
     "proj.ataa.title": "موقع وإدارة عطاء",
