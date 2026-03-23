@@ -12,6 +12,7 @@ const translations = {
     "nav.skills": "Skills",
     "nav.experience": "Experience",
     "nav.projects": "Projects",
+    "nav.certifications": "Certifications",
     "nav.contact": "Contact",
 
     // Hero
@@ -79,6 +80,7 @@ const translations = {
     "exp.accSummary": "Worked in corporate auditing, tax accounting, and e-invoicing with the Egyptian Tax Authority. This financial background strengthens my ability to build accurate, business-aware ERP and financial systems.",
 
     // Projects
+    "proj.subtitle": "Projects developed during my role at It Plus Programming Solutions",
     "proj.tag": "What I've built",
     "proj.titleStart": "Featured",
     "proj.titleEnd": "Projects",
@@ -100,7 +102,7 @@ const translations = {
 
     "proj.ataa.cat": "Operations Planning",
     "proj.ataa.title": "Ataa Website & Admin",
-    "proj.ataa.desc": "ERP for operational planning in education with NgRx state management, admin dashboard, PDF report generation, and strategic goal management.",
+    "proj.ataa.desc": "Dual-module ERP for education: Quality Management System (QMS) for standards tracking, and Operational Planning System (OPS) with NgRx state management, admin dashboard, PDF report generation, and strategic goal management.",
 
     "proj.yalla.cat": "E-Commerce Dashboard",
     "proj.yalla.title": "YallaEshtary Dashboard",
@@ -165,6 +167,7 @@ const translations = {
     "nav.skills": "المهارات",
     "nav.experience": "الخبرات",
     "nav.projects": "المشاريع",
+    "nav.certifications": "الشهادات",
     "nav.contact": "تواصل معي",
 
     // Hero
@@ -232,6 +235,7 @@ const translations = {
     "exp.accSummary": "عملت في مراجعة حسابات الشركات والمحاسبة الضريبية والفاتورة الإلكترونية مع مصلحة الضرائب المصرية. هذه الخلفية المالية تعزز قدرتي على بناء أنظمة ERP ومالية دقيقة ومتوافقة مع متطلبات الأعمال.",
 
     // Projects
+    "proj.subtitle": "مشاريع تم تنفيذها خلال عملي في شركة It Plus Programming Solutions",
     "proj.tag": "ما بنيته",
     "proj.titleStart": "المشاريع",
     "proj.titleEnd": "المميزة",
@@ -253,7 +257,7 @@ const translations = {
 
     "proj.ataa.cat": "تخطيط العمليات",
     "proj.ataa.title": "موقع وإدارة عطاء",
-    "proj.ataa.desc": "نظام ERP للتخطيط التشغيلي في التعليم مع لوحة تحكم إدارية شاملة وإنشاء تقارير PDF وإدارة الأهداف الاستراتيجية.",
+    "proj.ataa.desc": "نظام ERP ثنائي الوحدات للتعليم: نظام إدارة الجودة (QMS) لتتبع المعايير، ونظام التخطيط التشغيلي (OPS) مع إدارة الحالة بـ NgRx ولوحة تحكم إدارية وإنشاء تقارير PDF وإدارة الأهداف الاستراتيجية.",
 
     "proj.yalla.cat": "لوحة تحكم تجارة إلكترونية",
     "proj.yalla.title": "لوحة تحكم يلا اشتري",
@@ -760,6 +764,7 @@ function initContactForm() {
     const email = document.getElementById('email').value;
     const subject = document.getElementById('subject').value;
     const message = document.getElementById('message').value;
+    const botcheck = document.getElementById('botcheck').checked;
     const btn = form.querySelector('.btn-submit');
     const originalText = btn.innerHTML;
 
@@ -780,6 +785,7 @@ function initContactForm() {
           email,
           subject,
           message,
+          botcheck,
           from_name: 'Portfolio Contact Form'
         })
       });

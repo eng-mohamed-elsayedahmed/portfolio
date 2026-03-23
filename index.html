@@ -22,7 +22,8 @@
     <!-- Open Graph -->
     <meta property="og:title" content="Mohamed Mahmoud Elsayed Ahmed | Angular Frontend Developer">
     <meta property="og:description" content="Angular Frontend Developer (محمد محمود السيد أحمد) - Specializing in TypeScript, RxJS & ERP Systems. 2+ years building 9+ scalable web applications in Cairo, Egypt.">
-    <meta property="og:image" content="https://eng-mohamed-elsayedahmed.github.io/portfolio/assets/img/logo.jpg">
+    <meta property="og:image" content="https://eng-mohamed-elsayedahmed.github.io/portfolio/assets/img/profile.jpg">
+    <meta property="og:image:alt" content="Mohamed Mahmoud Elsayed Ahmed - Angular Frontend Developer">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://eng-mohamed-elsayedahmed.github.io/portfolio/">
     <meta property="og:site_name" content="Mohamed Mahmoud - Angular Developer Portfolio">
@@ -33,7 +34,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Mohamed Mahmoud Elsayed Ahmed | Angular Frontend Developer">
     <meta name="twitter:description" content="Angular Frontend Developer specializing in TypeScript, RxJS & ERP Systems. Cairo, Egypt.">
-    <meta name="twitter:image" content="https://eng-mohamed-elsayedahmed.github.io/portfolio/assets/img/logo.jpg">
+    <meta name="twitter:image" content="https://eng-mohamed-elsayedahmed.github.io/portfolio/assets/img/profile.jpg">
 
     <!-- Structured Data (JSON-LD) -->
     <script type="application/ld+json">
@@ -173,6 +174,7 @@
                 <li><a href="#skills" class="nav-link" data-i18n="nav.skills">Skills</a></li>
                 <li><a href="#experience" class="nav-link" data-i18n="nav.experience">Experience</a></li>
                 <li><a href="#projects" class="nav-link" data-i18n="nav.projects">Projects</a></li>
+                <li><a href="#certifications" class="nav-link" data-i18n="nav.certifications">Certifications</a></li>
                 <li><a href="#contact" class="nav-link" data-i18n="nav.contact">Contact</a></li>
             </ul>
             <div class="nav-actions">
@@ -559,6 +561,7 @@
                 <span class="section-tag" data-i18n="proj.tag">What I've built</span>
                 <h2 class="section-title"><span data-i18n="proj.titleStart">Featured</span> <span class="gradient-text" data-i18n="proj.titleEnd">Projects</span></h2>
                 <div class="section-line"></div>
+                <p class="section-subtitle" data-i18n="proj.subtitle">Projects developed during my role at It Plus Programming Solutions</p>
             </div>
 
             <div class="project-filters reveal">
@@ -572,7 +575,7 @@
                 <!-- Loom ERP -->
                 <div class="project-card reveal" data-category="erp" data-live="" role="button" tabindex="0">
                     <div class="project-image">
-                        <div class="project-placeholder" aria-hidden="true"><i class="fas fa-hard-hat"></i></div>
+                        <img src="assets/img/projects/loom.jpg" alt="Loom ERP - Construction Management System" loading="lazy">
                         <div class="project-overlay"><div class="project-links"><span class="project-link-tag">ERP System</span></div></div>
                     </div>
                     <div class="project-info">
@@ -620,7 +623,7 @@
                     <div class="project-info">
                         <span class="project-category" data-i18n="proj.ataa.cat">Operations Planning</span>
                         <h3 class="project-title" data-i18n="proj.ataa.title">Ataa Website & Admin</h3>
-                        <p class="project-description" data-i18n="proj.ataa.desc">ERP for operational planning in education with NgRx state management, admin dashboard, PDF report generation, and strategic goal management.</p>
+                        <p class="project-description" data-i18n="proj.ataa.desc">Dual-module ERP for education: Quality Management System (QMS) for standards tracking, and Operational Planning System (OPS) with NgRx state management, admin dashboard, PDF report generation, and strategic goal management.</p>
                         <div class="project-tech"><span>Angular</span><span>NgRx</span><span>PHP</span><span>mPDF</span></div>
                     </div>
                 </div>
@@ -684,7 +687,7 @@
                 <!-- Stride -->
                 <div class="project-card reveal" data-category="erp" data-live="" role="button" tabindex="0">
                     <div class="project-image">
-                        <div class="project-placeholder" aria-hidden="true"><i class="fas fa-paint-roller"></i></div>
+                        <img src="assets/img/projects/stride.jpg" alt="Stride - Construction Finishes CMS" loading="lazy">
                         <div class="project-overlay"><div class="project-links"><span class="project-link-tag">CMS</span></div></div>
                     </div>
                     <div class="project-info">
@@ -809,20 +812,22 @@
                 </div>
                 <div class="contact-form-wrapper reveal">
                     <form class="contact-form" id="contactForm">
+                        <!-- Honeypot: spam protection -->
+                        <input type="checkbox" name="botcheck" id="botcheck" style="display:none;" tabindex="-1" autocomplete="off">
                         <div class="form-group">
-                            <input type="text" id="name" name="name" required placeholder=" ">
+                            <input type="text" id="name" name="name" required placeholder=" " autocomplete="name">
                             <label for="name" data-i18n="contact.yourName">Your Name</label>
                         </div>
                         <div class="form-group">
-                            <input type="email" id="email" name="email" required placeholder=" ">
+                            <input type="email" id="email" name="email" required placeholder=" " autocomplete="email">
                             <label for="email" data-i18n="contact.yourEmail">Your Email</label>
                         </div>
                         <div class="form-group">
-                            <input type="text" id="subject" name="subject" required placeholder=" ">
+                            <input type="text" id="subject" name="subject" required placeholder=" " autocomplete="off">
                             <label for="subject" data-i18n="contact.subject">Subject</label>
                         </div>
                         <div class="form-group">
-                            <textarea id="message" name="message" rows="5" required placeholder=" "></textarea>
+                            <textarea id="message" name="message" rows="5" required placeholder=" " autocomplete="off"></textarea>
                             <label for="message" data-i18n="contact.yourMessage">Your Message</label>
                         </div>
                         <button type="submit" class="btn btn-primary btn-submit">
