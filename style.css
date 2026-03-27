@@ -1615,6 +1615,7 @@ a.project-link-tag i {
     align-items: flex-start;
     gap: 20px;
     transition: var(--transition);
+    position: relative;
 }
 
 .cert-card:hover {
@@ -1638,6 +1639,33 @@ a.project-link-tag i {
 
 .cert-icon-orange { color: #f59e0b; background: rgba(245, 158, 11, 0.1); }
 .cert-icon-red { color: #dd0031; background: rgba(221, 0, 49, 0.1); }
+.cert-icon-anthropic { color: #d4a27f; background: rgba(212, 162, 127, 0.1); }
+
+.cert-card-link {
+    text-decoration: none;
+    color: inherit;
+    position: relative;
+    cursor: pointer;
+}
+
+.cert-verify-icon {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    font-size: 0.75rem;
+    color: var(--text-tertiary);
+    opacity: 0;
+    transition: var(--transition);
+}
+
+[dir="rtl"] .cert-verify-icon {
+    right: auto;
+    left: 16px;
+}
+
+.cert-card-link:hover .cert-verify-icon {
+    opacity: 1;
+}
 
 .cert-info h3 {
     font-size: 1.05rem;

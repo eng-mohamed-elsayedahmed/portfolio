@@ -1,0 +1,24 @@
+{
+  "certificates": [
+    {
+      "id": "8ocbfvkrjkdt",
+      "course": "Claude 101",
+      "provider": "Anthropic Academy",
+      "verification_url": "http://verify.skilljar.com/c/8ocbfvkrjkdt",
+      "date_issued": "2026-03-26",
+      "local_backup": "D:/It Plus/certificates/certificate-anthropic-claude-101-2026-03-26.pdf"
+    },
+    {
+      "id": "jenrnj289v9x",
+      "course": "Claude Code in Action",
+      "provider": "Anthropic Academy",
+      "verification_url": "http://verify.skilljar.com/c/jenrnj289v9x",
+      "date_issued": "2026-03-27",
+      "local_backup": "D:/It Plus/certificates/certificate-anthropic-claude-code-in-action-2026-03-27.pdf"
+    }
+  ],
+  "metadata": {
+    "last_updated": "2026-03-27",
+    "total_certificates": 2
+  }
+}

@@ -141,6 +141,10 @@ const translations = {
     "cert.profCert": "Professional Certificate",
     "cert.angular": "Angular Development",
     "cert.specCert": "Specialized Certificate",
+    "cert.claude101": "Claude 101",
+    "cert.claude101Detail": "AI Fundamentals • 2026",
+    "cert.claudeCode": "Claude Code in Action",
+    "cert.claudeCodeDetail": "AI-Assisted Development • 2026",
 
     // Contact
     "contact.tag": "Let's connect",
@@ -296,6 +300,10 @@ const translations = {
     "cert.profCert": "شهادة احترافية",
     "cert.angular": "تطوير Angular",
     "cert.specCert": "شهادة متخصصة",
+    "cert.claude101": "Claude 101",
+    "cert.claude101Detail": "أساسيات الذكاء الاصطناعي • 2026",
+    "cert.claudeCode": "Claude Code in Action",
+    "cert.claudeCodeDetail": "التطوير بمساعدة الذكاء الاصطناعي • 2026",
 
     // Contact
     "contact.tag": "تواصل معي",
