@@ -101,6 +101,7 @@ const translations = {
     "proj.backend": "Backend",
     "proj.tag.mobile": "Mobile App",
     "proj.tag.private": "Private System",
+    "proj.tag.case": "Case study",
     "proj.qmsapp.cat": "Mobile App &mdash; Education Quality",
     "proj.qmsapp.title": "QMS Ataa &mdash; Quality Management App",
     "proj.qmsapp.desc": "Flutter app for a Saudi education authority's quality system. 18 feature modules covering school visits, standards, indicators, evaluations and corrective plans &mdash; with role-scoped access across a multi-membership matrix, Arabic-first RTL, push notifications, and comment threads carrying image, video and voice attachments.",
@@ -287,6 +288,7 @@ const translations = {
     "proj.backend": "باك إند",
     "proj.tag.mobile": "تطبيق موبايل",
     "proj.tag.private": "نظام خاص",
+    "proj.tag.case": "دراسة حالة",
     "proj.qmsapp.cat": "تطبيق موبايل &mdash; جودة التعليم",
     "proj.qmsapp.title": "QMS عطاء &mdash; تطبيق إدارة الجودة",
     "proj.qmsapp.desc": "تطبيق Flutter لنظام الجودة الخاص بجهة تعليمية سعودية. 18 وحدة وظيفية تغطي الزيارات المدرسية والمعايير والمؤشرات والتقييمات والخطط التصحيحية &mdash; مع صلاحيات مرتبطة بالدور عبر مصفوفة عضويات متعددة، وواجهة عربية أولاً بدعم RTL، وإشعارات فورية، وتعليقات تحمل مرفقات صور وفيديو وتسجيلات صوتية.",
@@ -717,7 +719,10 @@ function initProjectModal() {
     if (liveUrl) {
       modalLiveBtn.href = liveUrl;
       modalLiveBtn.style.display = 'inline-flex';
-      modalLiveBtn.querySelector('span').textContent = currentLang === 'ar' ? 'زيارة الموقع' : 'Visit Live Site';
+      const isCaseStudy = /^projects\//.test(liveUrl);
+      modalLiveBtn.querySelector('span').textContent = isCaseStudy
+        ? (currentLang === 'ar' ? 'اقرأ دراسة الحالة' : 'Read the case study')
+        : (currentLang === 'ar' ? 'زيارة الموقع' : 'Visit Live Site');
     } else {
       modalLiveBtn.style.display = 'none';
     }

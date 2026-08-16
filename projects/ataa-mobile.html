@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ataa Mobile — QMS &amp; OPS | Mohamed Elsayed</title>
+<meta name="description" content="Case study: two Flutter apps built for a Saudi education authority — QMS (quality management) and OPS (operational planning). Role-scoped access across 31 membership codes, Arabic-first RTL, and a defensive contract against a legacy PHP backend.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://eng-mohamed-elsayedahmed.github.io/portfolio/projects/ataa-mobile.html">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/img/favicon-32x32.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* Palette lifted from the apps' own color_manager.dart, not invented for this page. */
+:root{
+  --violet:#48397C; --teal:#199EA7; --mint:#6FBFB7;
+  --font-display:'Cairo',sans-serif; --font-body:'Inter',sans-serif; --font-mono:'JetBrains Mono',monospace;
+  --maxw:1080px; --r:14px;
+  --bg:#100E1A; --bg-2:#171429; --panel:#1C1830; --line:rgba(255,255,255,.09);
+  --ink:#F2F0F8; --ink-2:#A9A4C4; --ink-3:#7C7799;
+  --glow:rgba(111,191,183,.14);
+}
+:root[data-theme="light"]{
+  --bg:#F1F4F8; --bg-2:#FFFFFF; --panel:#FFFFFF; --line:rgba(72,57,124,.14);
+  --ink:#1B1733; --ink-2:#514C6B; --ink-3:#7A7594; --glow:rgba(72,57,124,.07);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{background:var(--bg);color:var(--ink);font-family:var(--font-body);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+[dir="rtl"] body{font-family:var(--font-display)}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--mint);outline-offset:3px;border-radius:4px}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+
+/* ---- top bar ---- */
+.bar{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.bar-in{max-width:var(--maxw);margin:0 auto;padding:14px 24px;display:flex;align-items:center;gap:16px}
+.back{font-family:var(--font-mono);font-size:.82rem;color:var(--ink-2);display:inline-flex;align-items:center;gap:8px}
+.back:hover{color:var(--mint)}
+.bar-sp{flex:1}
+.tbtn{border:1px solid var(--line);background:transparent;color:var(--ink-2);font:inherit;font-size:.78rem;font-weight:600;padding:7px 13px;border-radius:999px;cursor:pointer}
+.tbtn:hover{color:var(--ink);border-color:var(--mint)}
+
+/* ---- hero ---- */
+.hero{padding:76px 0 56px;position:relative}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 18% 0%,var(--glow),transparent 70%);pointer-events:none}
+.eyebrow{font-family:var(--font-mono);font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--mint);margin-bottom:20px}
+h1{font-family:var(--font-display);font-weight:900;font-size:clamp(2rem,4.6vw,3.4rem);line-height:1.12;letter-spacing:-.02em;max-width:19ch}
+h1 em{font-style:normal;color:var(--mint)}
+.lede{margin-top:22px;max-width:60ch;color:var(--ink-2);font-size:1.03rem}
+.facts{margin-top:38px;display:flex;flex-wrap:wrap;gap:10px}
+.fact{border:1px solid var(--line);border-radius:999px;padding:7px 15px;font-family:var(--font-mono);font-size:.76rem;color:var(--ink-2)}
+.fact b{color:var(--ink);font-weight:600}
+
+/* ---- sections ---- */
+section{padding:60px 0;border-top:1px solid var(--line)}
+.shead{margin-bottom:34px}
+.skicker{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-3);margin-bottom:11px}
+h2{font-family:var(--font-display);font-weight:700;font-size:clamp(1.35rem,2.6vw,1.85rem);line-height:1.25;letter-spacing:-.01em;max-width:26ch}
+.snote{margin-top:12px;max-width:62ch;color:var(--ink-2);font-size:.95rem}
+
+/* ---- role explorer (the signature) ---- */
+.roles{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:26px}
+.role{border:1px solid var(--line);background:transparent;color:var(--ink-2);font:inherit;font-size:.82rem;font-weight:600;padding:9px 15px;border-radius:999px;cursor:pointer;transition:.18s}
+.role:hover{border-color:var(--mint);color:var(--ink)}
+.role[aria-pressed="true"]{background:var(--violet);border-color:var(--violet);color:#fff}
+:root[data-theme="light"] .role[aria-pressed="true"]{background:var(--violet);color:#fff}
+.role-say{border-inline-start:2px solid var(--mint);padding:2px 0 2px 16px;margin-bottom:26px;color:var(--ink-2);font-size:.95rem;min-height:3.2em}
+[dir="rtl"] .role-say{padding:2px 16px 2px 0}
+.role-say b{color:var(--ink);font-weight:600}
+.mods{display:grid;grid-template-columns:repeat(auto-fill,minmax(158px,1fr));gap:9px}
+.mod{border:1px solid var(--line);border-radius:10px;padding:12px 13px;background:var(--panel);transition:.2s}
+.mod-n{font-size:.86rem;font-weight:600;color:var(--ink);display:block}
+.mod-t{font-family:var(--font-mono);font-size:.68rem;color:var(--ink-3);margin-top:5px;display:block}
+.mod[data-on="no"]{opacity:.26;filter:saturate(0)}
+.mod[data-on="write"]{border-color:var(--mint);box-shadow:inset 3px 0 0 var(--mint)}
+[dir="rtl"] .mod[data-on="write"]{box-shadow:inset -3px 0 0 var(--mint)}
+.legend{display:flex;flex-wrap:wrap;gap:18px;margin-top:20px;font-family:var(--font-mono);font-size:.71rem;color:var(--ink-3)}
+.legend i{width:9px;height:9px;border-radius:2px;display:inline-block;margin-inline-end:7px;vertical-align:middle}
+
+/* ---- app switch ---- */
+.apps{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.app{border:1px solid var(--line);border-radius:var(--r);padding:24px;background:var(--panel)}
+.app h3{font-family:var(--font-display);font-size:1.12rem;font-weight:700;margin-bottom:4px}
+.app .who{font-family:var(--font-mono);font-size:.7rem;color:var(--mint);margin-bottom:14px}
+.app p{color:var(--ink-2);font-size:.9rem}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px}
+.chip{font-family:var(--font-mono);font-size:.69rem;color:var(--ink-2);border:1px solid var(--line);border-radius:6px;padding:4px 8px}
+
+/* ---- engineering notes ---- */
+.notes{display:grid;gap:2px;background:var(--line);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.note{background:var(--bg-2);padding:24px 26px}
+.note h4{font-family:var(--font-display);font-size:1rem;font-weight:700;margin-bottom:9px}
+.note p{color:var(--ink-2);font-size:.92rem}
+.note code{font-family:var(--font-mono);font-size:.85em;background:var(--panel);border:1px solid var(--line);border-radius:4px;padding:1px 5px;color:var(--mint)}
+
+/* ---- stack ---- */
+.stack{display:flex;flex-wrap:wrap;gap:8px}
+.st{font-family:var(--font-mono);font-size:.78rem;border:1px solid var(--line);border-radius:8px;padding:8px 13px;color:var(--ink-2)}
+
+footer{border-top:1px solid var(--line);padding:40px 0 60px;color:var(--ink-3);font-size:.86rem}
+footer a{color:var(--mint)}
+.disc{max-width:60ch}
+
+@media(max-width:720px){
+  .apps{grid-template-columns:1fr}
+  .hero{padding:52px 0 40px}
+  h1{max-width:none}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<div class="bar"><div class="bar-in">
+  <a class="back" href="../index.html#projects"><span aria-hidden="true">&#8592;</span> <span data-t="nav.back">Back to portfolio</span></a>
+  <span class="bar-sp"></span>
+  <button class="tbtn" id="lang" type="button">العربية</button>
+  <button class="tbtn" id="theme" type="button" aria-label="Toggle theme">&#9788;</button>
+</div></div>
+
+<header class="hero"><div class="wrap">
+  <div class="eyebrow" data-t="hero.eyebrow">Ataa Education Authority &middot; Saudi Arabia</div>
+  <h1 data-t="hero.h1">Two Flutter apps where the same screen tells different people <em>different truths</em>.</h1>
+  <p class="lede" data-t="hero.lede">QMS and OPS ship as separate products on one platform. What a member sees, and what they are allowed to approve, is resolved per membership rather than per screen — so the module map below is not a menu, it is a permission model.</p>
+  <div class="facts">
+    <span class="fact"><b>29</b> <span data-t="f.modules">feature modules</span></span>
+    <span class="fact"><b>31</b> <span data-t="f.roles">role codes</span></span>
+    <span class="fact"><b>2</b> <span data-t="f.apps">production apps</span></span>
+    <span class="fact" data-t="f.rtl">Arabic-first, RTL</span>
+  </div>
+</div></header>
+
+<section id="roles"><div class="wrap">
+  <div class="shead">
+    <div class="skicker" data-t="k.roles">The signature problem</div>
+    <h2 data-t="h.roles">Pick a membership. The app rearranges itself.</h2>
+    <p class="snote" data-t="n.roles">Every screen asks the backend who is looking before it decides what to render. Approval state is the sharpest case: it is computed as a SQL <code>CASE</code> over the viewer’s role, so one plan legitimately reads “approved” to a director and “awaiting” to the officer who filed it.</p>
+  </div>
+  <div class="roles" id="roleBtns"></div>
+  <p class="role-say" id="roleSay"></p>
+  <div class="mods" id="modGrid"></div>
+  <div class="legend">
+    <span><i style="background:var(--mint)"></i><span data-t="lg.write">can create or approve</span></span>
+    <span><i style="background:var(--ink-3)"></i><span data-t="lg.read">read only</span></span>
+    <span><i style="background:var(--line);border:1px solid var(--ink-3)"></i><span data-t="lg.none">not visible</span></span>
+  </div>
+</div></section>
+
+<section id="apps"><div class="wrap">
+  <div class="shead">
+    <div class="skicker" data-t="k.apps">Two products</div>
+    <h2 data-t="h.apps">One design system, two identities.</h2>
+    <p class="snote" data-t="n.apps">OPS reuses the QMS widget library, tokens and typography exactly — then ships under its own package id, its own Firebase project and its own name. Sharing the surface without sharing the identity was a deliberate constraint, and the reason the second app took weeks instead of months.</p>
+  </div>
+  <div class="apps">
+    <article class="app">
+      <h3>QMS Ataa</h3>
+      <div class="who" data-t="app.qms.who">quality management &middot; 18 modules</div>
+      <p data-t="app.qms.p">School visits, standards, indicators, evaluations and corrective plans, over a membership matrix that spans stage officers, domain owners, visit teams and central quality management. Comment threads carry photos, video and voice notes.</p>
+      <div class="chips"><span class="chip">visits</span><span class="chip">standards</span><span class="chip">indicators</span><span class="chip">corrective plans</span><span class="chip">evaluations</span><span class="chip">schools</span></div>
+    </article>
+    <article class="app">
+      <h3>OPS Ataa</h3>
+      <div class="who" data-t="app.ops.who">operational planning &middot; 11 modules</div>
+      <p data-t="app.ops.p">The full planning chain — strategic goals, sub-goals, work plans, indicators — plus quarterly and annual evaluations with server-derived targets, PDF export, and approval gates that refuse to pass an incomplete plan.</p>
+      <div class="chips"><span class="chip">plans</span><span class="chip">goal chain</span><span class="chip">work plans</span><span class="chip">quarterly eval</span><span class="chip">PDF export</span><span class="chip">statistics</span></div>
+    </article>
+  </div>
+</div></section>
+
+<section id="notes"><div class="wrap">
+  <div class="shead">
+    <div class="skicker" data-t="k.notes">What actually took the time</div>
+    <h2 data-t="h.notes">Four problems that were not about UI.</h2>
+  </div>
+  <div class="notes">
+    <article class="note">
+      <h4 data-t="nt1.h">A response envelope that refuses to hold still</h4>
+      <p data-t="nt1.p">The <code>data</code> field arrives as an object, a list, an integer id, or a plain string carrying a failure message — and sometimes not at all. A request missing a header returns raw text under HTTP 200, and a 401 returns a null body, so the session decision has to come from the status code alone. Every model is parsed defensively rather than through a generic deserializer.</p>
+    </article>
+    <article class="note">
+      <h4 data-t="nt2.h">Approval is relative to the viewer</h4>
+      <p data-t="nt2.p">Two users open the same plan and see opposite states. That is the contract, not a defect: the field is derived per requester. Caching it, or trusting a value fetched under a different account, produces bugs that only appear when a second person signs in.</p>
+    </article>
+    <article class="note">
+      <h4 data-t="nt3.h">The web client and the app get different payloads</h4>
+      <p data-t="nt3.p">The backend branches on a <code>Set-From</code> header — eight endpoints change shape for the app, one of them renaming its keys outright. Every model had to be built against a real response captured as the app, never as the admin panel.</p>
+    </article>
+    <article class="note">
+      <h4 data-t="nt4.h">Arabic type had to ship as real weights</h4>
+      <p data-t="nt4.p">Cairo is bundled at 400, 500, 600 and 700 as four separate files. With Regular alone, Flutter synthesises the heavier weights by thickening strokes, which closes the counters of ص ض ه ع until they render as solid blobs. On an Arabic-first product that is a legibility bug, not a polish item.</p>
+    </article>
+  </div>
+</div></section>
+
+<section id="stack"><div class="wrap">
+  <div class="shead">
+    <div class="skicker" data-t="k.stack">Built with</div>
+    <h2 data-t="h.stack">Flutter, held to a clean architecture.</h2>
+  </div>
+  <div class="stack">
+    <span class="st">Flutter 3.22</span><span class="st">Dart</span><span class="st">BLoC / Cubit</span><span class="st">GetIt</span>
+    <span class="st">Dio + Retrofit</span><span class="st">Freezed</span><span class="st">Dartz</span><span class="st">Firebase FCM</span>
+    <span class="st">local notifications</span><span class="st">easy_localization</span><span class="st">Skeletonizer</span><span class="st">get_storage</span>
+  </div>
+</div></section>
+
+<footer><div class="wrap">
+  <p class="disc" data-t="foot.disc">Both apps are internal tools for a Saudi education authority, so there is no public build to link. This page describes the engineering rather than showing screens I am not free to publish.</p>
+  <p style="margin-top:16px"><a href="../index.html#projects" data-t="foot.back">&#8592; Back to the rest of the work</a></p>
+</div></footer>
+
+<script>
+const MODULES = [
+  {id:'home',      en:'Home &amp; stats',    ar:'الرئيسية والإحصائيات', app:'both'},
+  {id:'visits',    en:'School visits',    ar:'الزيارات المدرسية',   app:'qms'},
+  {id:'standards', en:'Standards',        ar:'المعايير',            app:'qms'},
+  {id:'indicators',en:'Indicators',       ar:'المؤشرات',            app:'both'},
+  {id:'evaluation',en:'Evaluations',      ar:'التقييمات',           app:'both'},
+  {id:'corrective',en:'Corrective plans', ar:'الخطط التصحيحية',     app:'qms'},
+  {id:'schools',   en:'Schools',          ar:'المدارس',             app:'qms'},
+  {id:'stages',    en:'Stages',           ar:'المراحل',             app:'qms'},
+  {id:'fields',    en:'Fields',           ar:'المجالات',            app:'qms'},
+  {id:'plans',     en:'Operational plans',ar:'الخطط التشغيلية',     app:'ops'},
+  {id:'chain',     en:'Goal chain',       ar:'سلسلة الأهداف',       app:'ops'},
+  {id:'workplans', en:'Work plans',       ar:'خطط العمل',           app:'ops'},
+  {id:'comments',  en:'Comments &amp; files', ar:'التعليقات والمرفقات', app:'both'},
+  {id:'members',   en:'Members',          ar:'الأعضاء',             app:'qms'},
+  {id:'notify',    en:'Notifications',    ar:'الإشعارات',           app:'both'},
+  {id:'profile',   en:'Profile',          ar:'الملف الشخصي',        app:'both'}
+];
+const ALL = MODULES.map(m=>m.id);
+const ROLES = [
+  {id:'stage_officer', en:'Stage officer', ar:'مسؤول مرحلة',
+   write:['visits','evaluation','corrective','comments','indicators'],
+   read:['home','standards','schools','stages','fields','notify','profile'],
+   sayEn:'Files visits and evaluations for the stage they own, and can open a corrective plan when an indicator falls short.',
+   sayAr:'يسجّل الزيارات والتقييمات للمرحلة المسؤول عنها، ويقدر يفتح خطة تصحيحية لما مؤشر ينزل عن المستوى.'},
+  {id:'domain', en:'Domain owner', ar:'مالك مجال',
+   write:['indicators','evaluation','comments'],
+   read:['home','visits','standards','fields','notify','profile'],
+   sayEn:'Scoped to a single field of practice. Sees every indicator inside it and nothing outside it.',
+   sayAr:'صلاحيته محصورة في مجال واحد. بيشوف كل مؤشراته ومش بيشوف حاجة برّاه.'},
+  {id:'visit_team_member', en:'Visit team member', ar:'عضو فريق زيارة',
+   write:['visits','comments'],
+   read:['home','standards','indicators','schools','notify','profile'],
+   sayEn:'Exists only inside a visit. Records findings against standards, then loses write access when the visit closes.',
+   sayAr:'وجوده مرتبط بالزيارة نفسها. بيسجّل الملاحظات على المعايير، وبيفقد صلاحية الكتابة أول ما الزيارة تتقفل.'},
+  {id:'vpea', en:'VPEA', ar:'نائب التعليم',
+   write:['plans'],
+   read:['home','chain','workplans','indicators','evaluation','comments','notify','profile'],
+   sayEn:'Approves across an education sector but authors almost nothing. The approve button appears here and on very few other accounts.',
+   sayAr:'بيعتمد على مستوى قطاع تعليمي كامل لكن بيكتب حاجة قليلة جداً. زرار الاعتماد بيظهر هنا وفي حسابات قليلة غيره.'},
+  {id:'ceo', en:'CEO', ar:'الرئيس التنفيذي',
+   write:['plans'],
+   read:['home','chain','workplans','indicators','evaluation','comments','notify','profile'],
+   sayEn:'Reads everything the organisation produces. Deliberately excluded from the create-plan whitelist — oversight and authorship are kept apart.',
+   sayAr:'بيقرأ كل اللي المنظمة بتنتجه. ومستبعد عن قصد من قائمة إنشاء الخطط — الرقابة والتنفيذ مفصولين.'},
+  {id:'admin', en:'Admin', ar:'أدمن',
+   write:['members'],
+   read:['home','schools','stages','fields','standards','notify','profile'],
+   sayEn:'Runs the directory from the web console. The app rejects this login on purpose — administration was never part of the mobile scope.',
+   sayAr:'بيدير النظام من لوحة الويب. التطبيق بيرفض دخوله عن قصد — الإدارة مكانتش أصلاً ضمن نطاق الموبايل.'}
+];
+
+const T = {
+  'nav.back':['Back to portfolio','رجوع للبورتفوليو'],
+  'hero.eyebrow':['Ataa Education Authority &middot; Saudi Arabia','جهة عطاء التعليمية &middot; السعودية'],
+  'hero.h1':['Two Flutter apps where the same screen tells different people <em>different truths</em>.','تطبيقان بـFlutter، نفس الشاشة بتقول لكل واحد <em>حقيقة مختلفة</em>.'],
+  'hero.lede':['QMS and OPS ship as separate products on one platform. What a member sees, and what they are allowed to approve, is resolved per membership rather than per screen — so the module map below is not a menu, it is a permission model.','QMS و OPS منتجان منفصلان على منصة واحدة. اللي العضو بيشوفه، واللي مسموح له يعتمده، بيتحدّد حسب عضويته مش حسب الشاشة — فخريطة الموديولات تحت مش قائمة، دي نموذج صلاحيات.'],
+  'f.modules':['feature modules','موديول وظيفي'],
+  'f.roles':['role codes','كود صلاحية'],
+  'f.apps':['production apps','تطبيق في الإنتاج'],
+  'f.rtl':['Arabic-first, RTL','عربي أولاً، RTL'],
+  'k.roles':['The signature problem','المشكلة الأساسية'],
+  'h.roles':['Pick a membership. The app rearranges itself.','اختر عضوية، والتطبيق يعيد ترتيب نفسه.'],
+  'n.roles':['Every screen asks the backend who is looking before it decides what to render. Approval state is the sharpest case: it is computed as a SQL <code>CASE</code> over the viewer’s role, so one plan legitimately reads &ldquo;approved&rdquo; to a director and &ldquo;awaiting&rdquo; to the officer who filed it.','كل شاشة بتسأل الباك إند مين اللي بيبص قبل ما تقرر تعرض إيه. وحالة الاعتماد أوضح مثال: بتتحسب بـ<code>CASE</code> في الـSQL حسب دور المستخدم، فنفس الخطة بتظهر «معتمدة» لمدير و«بانتظار» للموظف اللي قدّمها — وده سلوك سليم.'],
+  'lg.write':['can create or approve','بيقدر ينشئ أو يعتمد'],
+  'lg.read':['read only','عرض فقط'],
+  'lg.none':['not visible','غير ظاهر'],
+  'k.apps':['Two products','منتجان'],
+  'h.apps':['One design system, two identities.','نظام تصميم واحد، هويتان.'],
+  'n.apps':['OPS reuses the QMS widget library, tokens and typography exactly — then ships under its own package id, its own Firebase project and its own name. Sharing the surface without sharing the identity was a deliberate constraint, and the reason the second app took weeks instead of months.','OPS بيعيد استخدام مكتبة الويدجتس والألوان والخطوط بتاعة QMS بالحرف — وبعدين بيتسلّم بـpackage id خاص ومشروع Firebase خاص واسم خاص. مشاركة الشكل من غير مشاركة الهوية كانت قيد مقصود، وهي السبب إن التطبيق التاني أخد أسابيع بدل شهور.'],
+  'app.qms.who':['quality management &middot; 18 modules','إدارة الجودة &middot; 18 موديول'],
+  'app.qms.p':['School visits, standards, indicators, evaluations and corrective plans, over a membership matrix that spans stage officers, domain owners, visit teams and central quality management. Comment threads carry photos, video and voice notes.','الزيارات المدرسية والمعايير والمؤشرات والتقييمات والخطط التصحيحية، فوق مصفوفة عضويات بتغطي مسؤولي المراحل ومُلّاك المجالات وفرق الزيارة وإدارة الجودة المركزية. والتعليقات بتحمل صور وفيديو وتسجيلات صوتية.'],
+  'app.ops.who':['operational planning &middot; 11 modules','التخطيط التشغيلي &middot; 11 موديول'],
+  'app.ops.p':['The full planning chain — strategic goals, sub-goals, work plans, indicators — plus quarterly and annual evaluations with server-derived targets, PDF export, and approval gates that refuse to pass an incomplete plan.','سلسلة التخطيط كاملة — الأهداف الاستراتيجية والفرعية وخطط العمل والمؤشرات — بالإضافة للتقييمات الربعية والسنوية بمستهدفات السيرفر بيشتقها بنفسه، وتصدير PDF، وبوابات اعتماد بترفض تمرير خطة ناقصة.'],
+  'k.notes':['What actually took the time','اللي أخد الوقت فعلاً'],
+  'h.notes':['Four problems that were not about UI.','أربع مشاكل مالهاش علاقة بالواجهة.'],
+  'nt1.h':['A response envelope that refuses to hold still','ردّ من السيرفر مش ثابت على شكل'],
+  'nt1.p':['The <code>data</code> field arrives as an object, a list, an integer id, or a plain string carrying a failure message — and sometimes not at all. A request missing a header returns raw text under HTTP 200, and a 401 returns a null body, so the session decision has to come from the status code alone. Every model is parsed defensively rather than through a generic deserializer.','حقل <code>data</code> بيرجع Map أو List أو رقم id أو نص فيه رسالة فشل — وأحياناً مش موجود أصلاً. وطلب ناقصه هيدر بيرجع نص خام بـHTTP 200، والـ401 بيرجع body فاضي، فقرار انتهاء الجلسة لازم يتاخد من الـstatus code لوحده. فكل موديل بيتقري بطريقة دفاعية مش بـdeserializer عام.'],
+  'nt2.h':['Approval is relative to the viewer','الاعتماد نسبي حسب من يشاهد'],
+  'nt2.p':['Two users open the same plan and see opposite states. That is the contract, not a defect: the field is derived per requester. Caching it, or trusting a value fetched under a different account, produces bugs that only appear when a second person signs in.','مستخدمان يفتحان نفس الخطة ويشوفان حالتين متعاكستين. ده العقد مش عيب: الحقل بيتحسب لكل طالب على حدة. وتخزينه مؤقتاً أو الثقة في قيمة اتجابت بحساب تاني بتنتج أخطاء متظهرش غير لما حد تاني يسجّل دخول.'],
+  'nt3.h':['The web client and the app get different payloads','الويب والتطبيق بياخدوا ردود مختلفة'],
+  'nt3.p':['The backend branches on a <code>Set-From</code> header — eight endpoints change shape for the app, one of them renaming its keys outright. Every model had to be built against a real response captured as the app, never as the admin panel.','الباك إند بيتفرّع حسب هيدر <code>Set-From</code> — تمن endpoints بيغيروا شكلهم للتطبيق، وواحد منهم بيغيّر أسماء المفاتيح نفسها. فكل موديل اتبنى على رد حقيقي متسجّل كتطبيق، مش كلوحة إدارة.'],
+  'nt4.h':['Arabic type had to ship as real weights','الخط العربي لازم يتسلّم بأوزان حقيقية'],
+  'nt4.p':['Cairo is bundled at 400, 500, 600 and 700 as four separate files. With Regular alone, Flutter synthesises the heavier weights by thickening strokes, which closes the counters of ص ض ه ع until they render as solid blobs. On an Arabic-first product that is a legibility bug, not a polish item.','خط Cairo متسلّم بأربع ملفات منفصلة: 400 و500 و600 و700. لأن Flutter بالـRegular لوحده بيزوّر الأوزان التقيلة بتغليظ الحروف، وده بيقفل عيون ص ض ه ع لحد ما تبقى كتلة صمّاء. وفي منتج عربي أولاً دي مشكلة وضوح، مش رفاهية.'],
+  'k.stack':['Built with','مبني بـ'],
+  'h.stack':['Flutter, held to a clean architecture.','Flutter بمعمارية نظيفة.'],
+  'foot.disc':['Both apps are internal tools for a Saudi education authority, so there is no public build to link. This page describes the engineering rather than showing screens I am not free to publish.','التطبيقان أدوات داخلية لجهة تعليمية سعودية، فمفيش نسخة عامة أقدر أربطها. الصفحة دي بتشرح الهندسة بدل ما تعرض شاشات مش من حقي أنشرها.'],
+  'foot.back':['&#8592; Back to the rest of the work','&#8592; رجوع لباقي الشغل']
+};
+
+let lang = 'en', active = ROLES[0].id;
+
+function render(){
+  const i = lang === 'ar' ? 1 : 0;
+  document.querySelectorAll('[data-t]').forEach(el=>{
+    const v = T[el.getAttribute('data-t')];
+    if (v) el.innerHTML = v[i];
+  });
+  const r = ROLES.find(x=>x.id===active);
+  document.getElementById('roleBtns').innerHTML = ROLES.map(x=>
+    `<button class="role" type="button" aria-pressed="${x.id===active}" data-r="${x.id}">${i?x.ar:x.en}</button>`).join('');
+  document.getElementById('roleSay').innerHTML =
+    `<b>${i?r.ar:r.en}</b> &mdash; ${i?r.sayAr:r.sayEn}`;
+  document.getElementById('modGrid').innerHTML = MODULES.map(m=>{
+    const st = r.write.includes(m.id) ? 'write' : (r.read.includes(m.id) ? 'read' : 'no');
+    return `<div class="mod" data-on="${st}"><span class="mod-n">${i?m.ar:m.en}</span><span class="mod-t">${m.app==='both'?'QMS + OPS':m.app.toUpperCase()}</span></div>`;
+  }).join('');
+  document.getElementById('lang').textContent = i ? 'English' : 'العربية';
+  document.documentElement.lang = lang;
+  document.documentElement.dir = i ? 'rtl' : 'ltr';
+}
+
+document.getElementById('roleBtns').addEventListener('click', e=>{
+  const b = e.target.closest('[data-r]');
+  if (!b) return;
+  active = b.dataset.r;
+  render();
+});
+document.getElementById('lang').addEventListener('click', ()=>{
+  lang = lang === 'en' ? 'ar' : 'en';
+  try { localStorage.setItem('portfolio-lang', lang); } catch(e){}
+  render();
+});
+const theme = document.getElementById('theme');
+function setTheme(t){
+  document.documentElement.setAttribute('data-theme', t);
+  theme.innerHTML = t === 'dark' ? '&#9788;' : '&#9790;';
+  try { localStorage.setItem('portfolio-theme', t); } catch(e){}
+}
+theme.addEventListener('click', ()=> setTheme(
+  document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'));
+
+try {
+  const st = localStorage.getItem('portfolio-theme'); if (st) setTheme(st);
+  const sl = localStorage.getItem('portfolio-lang'); if (sl === 'ar') lang = 'ar';
+} catch(e){}
+render();
+</script>
+</body>
+</html>
