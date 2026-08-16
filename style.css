@@ -526,7 +526,8 @@ ul { list-style: none; }
 /* Hero Stats */
 .hero-stats {
     display: flex;
-    gap: 40px;
+    flex-wrap: wrap;
+    gap: 18px 26px;
 }
 
 .stat {
@@ -534,7 +535,7 @@ ul { list-style: none; }
 }
 
 .stat-number {
-    display: block;
+    display: inline-block;
     font-size: 2.2rem;
     font-weight: 800;
     background: var(--gradient-primary);
@@ -554,6 +555,7 @@ ul { list-style: none; }
 }
 
 .stat-label {
+    display: block;
     font-size: 0.8rem;
     color: var(--text-tertiary);
     font-weight: 500;
@@ -1008,6 +1010,10 @@ ul { list-style: none; }
 
 .skill-icon.rxjs-icon,
 .skill-icon.ngrx-icon { color: var(--accent-primary); }
+.skill-icon.fcm-icon { color: #f59e0b; }
+.skill-icon.ai-icon { color: #34d399; }
+
+.skill-category-wide { grid-column: 1 / -1; }
 
 .skill-name {
     font-size: 0.88rem;
@@ -1326,6 +1332,23 @@ ul { list-style: none; }
 .project-placeholder.backend-placeholder {
     background: linear-gradient(135deg, rgba(52, 211, 153, 0.1) 0%, var(--bg-secondary) 100%);
     color: #34d399;
+}
+
+.project-placeholder.mobile-placeholder {
+    background: linear-gradient(135deg, rgba(6, 182, 212, 0.12) 0%, var(--bg-secondary) 100%);
+    color: #06b6d4;
+}
+
+.project-placeholder.dashboard-placeholder {
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.12) 0%, var(--bg-secondary) 100%);
+    color: #f59e0b;
+}
+
+.project-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
 }
 
 .project-overlay {
