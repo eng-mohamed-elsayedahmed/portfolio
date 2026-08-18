@@ -191,6 +191,7 @@ const translations = {
 
     // Footer
     "footer.text": "Designed & Built by Mohamed Mahmoud Elsayed Ahmed",
+    "footer.lab": "Also on this domain: tools and games I built for fun",
     "footer.rights": "All rights reserved."
   },
 
@@ -380,6 +381,7 @@ const translations = {
 
     // Footer
     "footer.text": "تصميم وبناء محمد محمود السيد أحمد",
+    "footer.lab": "على نفس الدومين: أدوات وألعاب صنعتها",
     "footer.rights": "جميع الحقوق محفوظة."
   }
 };

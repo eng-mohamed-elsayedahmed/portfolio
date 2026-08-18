@@ -2081,3 +2081,18 @@ a.project-link-tag i {
     .contact-card { flex-direction: column; text-align: center; }
     .contact-arrow { display: none; }
 }
+
+
+/* link across to the tools and games hosted on the same domain */
+.footer-lab { margin: 0 0 0.75rem; font-size: 0.86rem; }
+.footer-lab a {
+    color: var(--text-secondary, #9a9ab0);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    transition: color 0.2s ease, gap 0.2s ease;
+}
+.footer-lab a:hover { color: var(--accent-primary, #6366f1); gap: 0.7rem; }
+.footer-lab i { font-size: 0.75rem; }
+[dir="rtl"] .footer-lab i { transform: rotate(180deg); }
