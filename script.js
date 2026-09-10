@@ -17,7 +17,7 @@ const translations = {
 
     // Hero
     "hero.greeting": "Hi, I'm",
-    "hero.description": "<strong>Full-Stack &amp; Mobile Developer</strong> with <strong>3 years</strong> of experience. I build enterprise web platforms with <strong>Angular</strong> and production mobile apps with <strong>Flutter</strong>, backed by <strong>PHP/Laravel</strong> APIs &mdash; shipping complete, Arabic-first products for clients in Egypt and Saudi Arabia.",
+    "hero.description": "<strong>Angular Developer</strong> with <strong>3 years</strong> of experience building enterprise web platforms &mdash; ERP dashboards, multi-role admin systems and SSR sites. I also deliver the rest of the product: <strong>Flutter</strong> mobile apps and <strong>PHP/Laravel</strong> APIs, for Arabic-first clients in Egypt and Saudi Arabia.",
     "hero.viewWork": "View My Work",
     "hero.getInTouch": "Get In Touch",
     "hero.downloadCV": "Download CV",
@@ -31,7 +31,7 @@ const translations = {
     "about.tag": "Get to know me",
     "about.titleStart": "About",
     "about.titleEnd": "Me",
-    "about.p1": "I'm a <strong>Full-Stack &amp; Mobile Developer</strong> based in <strong>Cairo, Egypt</strong>. I started out as an Angular frontend specialist and grew into owning products end to end &mdash; web platform, backend API, and native mobile app.",
+    "about.p1": "I'm an <strong>Angular Developer</strong> based in <strong>Cairo, Egypt</strong>. The web platform is where I'm strongest, and I've grown into delivering complete products around it &mdash; the Flutter mobile app and the Laravel API included.",
     "about.p2": "Over <strong>3 years</strong> at <strong>It Plus Programming Solutions</strong> I've delivered <strong>15+</strong> ERP, education and e-commerce systems for clients in <strong>Egypt and Saudi Arabia</strong> &mdash; including a full quality-management platform for a Saudi education authority, built as an Angular web system plus two Flutter mobile apps.",
     "about.p3": "My work leans toward systems others find awkward: <strong>Arabic-first RTL</strong> interfaces, multi-role permission matrices, and mobile clients that have to stay correct against legacy backends. A prior career in <strong>accounting and auditing</strong> is why business logic in ERP tends to make sense to me before it's explained.",
     "about.location": "Location",
@@ -40,7 +40,7 @@ const translations = {
     "about.background": "Background",
     "about.backgroundVal": "Finance → Tech",
     "about.specialty": "Specialty",
-    "about.specialtyVal": "Full-Stack &middot; Web &amp; Mobile",
+    "about.specialtyVal": "Angular &middot; Enterprise Web",
 
     // Skills
     "skills.tag": "What I work with",
@@ -74,13 +74,13 @@ const translations = {
     "exp.titleStart": "Work",
     "exp.titleEnd": "Experience",
     "exp.current": "Current Position",
-    "exp.role": "Applications Developer &mdash; Full-Stack &amp; Mobile",
+    "exp.role": "Applications Developer &mdash; Angular",
     "exp.date": "September 2023 — Present",
     "exp.d1": "Built enterprise Angular applications &mdash; from ERP dashboards to an <strong>Angular 19 SSR</strong> corporate platform &mdash; with NgRx state management",
     "exp.d2": "Shipped <strong>two production Flutter apps</strong> for a Saudi education authority using BLoC, clean architecture and Firebase push notifications",
     "exp.d3": "Improved load performance by <strong>30%</strong> through lazy loading and code optimization",
     "exp.d4": "Maintained clean, modular, and scalable code following best practices",
-    "exp.d5": "Built backend REST APIs in <strong>PHP/Laravel</strong> with JWT authentication, PDF generation and notification systems",
+    "exp.d5": "Delivered <strong>PHP/Laravel</strong> REST APIs for end-to-end projects &mdash; JWT authentication, PDF generation and notifications",
     "exp.d6": "Designed <strong>Arabic-first RTL</strong> interfaces and multi-role permission systems spanning 30+ distinct user roles",
     "exp.d7": "Led technical SEO on a multilingual site of <strong>~4,500 URLs</strong> &mdash; canonical/hreflang, Core Web Vitals, structured data and redirect strategy",
     "exp.prev": "Previous Career",
@@ -211,7 +211,7 @@ const translations = {
 
     // Hero
     "hero.greeting": "مرحباً، أنا",
-    "hero.description": "<strong>مطوّر فول ستاك وتطبيقات موبايل</strong> بخبرة <strong>3 سنوات</strong>. أبني منصات ويب مؤسسية بـ<strong>Angular</strong> وتطبيقات موبايل في الإنتاج بـ<strong>Flutter</strong>، مدعومة بواجهات <strong>PHP/Laravel</strong> &mdash; منتجات كاملة، عربية أولاً، لعملاء في مصر والسعودية.",
+    "hero.description": "<strong>مطوّر Angular</strong> بخبرة <strong>3 سنوات</strong> في بناء منصات ويب مؤسسية &mdash; لوحات تحكم ERP وأنظمة إدارة متعددة الصلاحيات ومواقع SSR. وأسلّم أيضاً باقي المنتج: تطبيقات موبايل بـ<strong>Flutter</strong> وواجهات <strong>PHP/Laravel</strong>، لعملاء في مصر والسعودية بواجهات عربية أولاً.",
     "hero.viewWork": "شاهد أعمالي",
     "hero.getInTouch": "تواصل معي",
     "hero.downloadCV": "تحميل السيرة الذاتية",
@@ -225,7 +225,7 @@ const translations = {
     "about.tag": "تعرف عليّ",
     "about.titleStart": "نبذة",
     "about.titleEnd": "عني",
-    "about.p1": "أنا <strong>مطوّر فول ستاك وتطبيقات موبايل</strong> مقيم في <strong>القاهرة، مصر</strong>. بدأت متخصصاً في واجهات Angular ثم توسّعت لأمتلك المنتج من طرفه إلى طرفه &mdash; منصة الويب، وواجهة الباك إند، وتطبيق الموبايل.",
+    "about.p1": "أنا <strong>مطوّر Angular</strong> مقيم في <strong>القاهرة، مصر</strong>. منصة الويب هي نقطة قوتي، وتوسّعت لأسلّم منتجات كاملة حولها &mdash; بما فيها تطبيق الموبايل بـFlutter وواجهة Laravel.",
     "about.p2": "خلال <strong>3 سنوات</strong> في <strong>It Plus Programming Solutions</strong> سلّمت <strong>أكثر من 15</strong> نظام ERP وتعليم وتجارة إلكترونية لعملاء في <strong>مصر والسعودية</strong> &mdash; من بينها منصة كاملة لإدارة الجودة لجهة تعليمية سعودية، بُنيت كنظام ويب بـAngular بالإضافة إلى تطبيقَي موبايل بـFlutter.",
     "about.p3": "شغلي يميل للأنظمة التي يجدها غيري متعبة: واجهات <strong>عربية أولاً بدعم RTL</strong>، ومصفوفات صلاحيات متعددة الأدوار، وتطبيقات موبايل يجب أن تظل صحيحة أمام باك إند قديم. وخلفيتي السابقة في <strong>المحاسبة والمراجعة</strong> هي السبب في أن منطق الأعمال في أنظمة ERP يكون مفهوماً لي قبل أن يشرحه أحد.",
     "about.location": "الموقع",
@@ -234,7 +234,7 @@ const translations = {
     "about.background": "الخلفية",
     "about.backgroundVal": "مالية ← تقنية",
     "about.specialty": "التخصص",
-    "about.specialtyVal": "فول ستاك · ويب وموبايل",
+    "about.specialtyVal": "Angular · ويب مؤسسي",
 
     // Skills
     "skills.tag": "ما أعمل به",
@@ -268,13 +268,13 @@ const translations = {
     "exp.titleStart": "الخبرة",
     "exp.titleEnd": "العملية",
     "exp.current": "المنصب الحالي",
-    "exp.role": "مطوّر تطبيقات &mdash; فول ستاك وموبايل",
+    "exp.role": "مطوّر تطبيقات &mdash; Angular",
     "exp.date": "سبتمبر 2023 — حتى الآن",
     "exp.d1": "بناء تطبيقات Angular مؤسسية &mdash; من لوحات تحكم ERP إلى منصة شركات بـ<strong>Angular 19 SSR</strong> &mdash; مع إدارة الحالة بـNgRx",
     "exp.d2": "إطلاق <strong>تطبيقَي موبايل في الإنتاج</strong> بـFlutter لجهة تعليمية سعودية باستخدام BLoC وClean Architecture وإشعارات Firebase",
     "exp.d3": "تحسين زمن التحميل بنسبة <strong>30%</strong> عبر التحميل الكسول وتحسين الكود",
     "exp.d4": "الحفاظ على كود نظيف ومعياري وقابل للتوسع وفق أفضل الممارسات",
-    "exp.d5": "بناء واجهات REST API بـ<strong>PHP/Laravel</strong> مع مصادقة JWT وتوليد PDF وأنظمة إشعارات",
+    "exp.d5": "تسليم واجهات REST API بـ<strong>PHP/Laravel</strong> لمشاريع متكاملة &mdash; مصادقة JWT وتوليد PDF وإشعارات",
     "exp.d6": "تصميم واجهات <strong>عربية أولاً بدعم RTL</strong> وأنظمة صلاحيات تغطي أكثر من 30 دوراً مختلفاً",
     "exp.d7": "قيادة الـ<strong>SEO</strong> التقني لموقع متعدد اللغات بحوالي <strong>4,500 رابط</strong> &mdash; canonical وhreflang وCore Web Vitals والبيانات المنظمة واستراتيجية التحويلات",
     "exp.prev": "المسيرة السابقة",
@@ -397,16 +397,16 @@ const translations = {
 // Typewriter phrases per language
 const typewriterPhrases = {
   en: [
-    "Full-Stack & Mobile Developer",
-    "Software Engineer — Web & Mobile",
-    "Angular & Flutter Specialist",
+    "Angular Developer",
+    "Enterprise Web Platforms",
+    "Full Product Delivery — Web, Mobile & API",
     "ERP & Enterprise Systems",
     "Performance Optimizer"
   ],
   ar: [
-    "مطوّر فول ستاك وموبايل",
-    "مهندس برمجيات — ويب وموبايل",
-    "متخصص Angular و Flutter",
+    "مطوّر Angular",
+    "منصات ويب مؤسسية",
+    "تسليم منتجات كاملة — ويب وموبايل وAPI",
     "مطور أنظمة ERP",
     "محسّن الأداء"
   ]
