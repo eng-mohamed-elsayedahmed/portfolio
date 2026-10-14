@@ -95,6 +95,7 @@ const translations = {
     "exp.role": "Software Engineer &rarr; Team Lead &amp; Product Manager, Bonyan ERP",
     "exp.date": "September 2023 — Present",
     "exp.b1": "Lead the development team and own the product for <strong>Bonyan ERP</strong>, a multi-tenant SaaS (one database per company) with <strong>160+ company workspaces</strong> &mdash; roadmap, specs, code review and releases",
+    "exp.b6": "Built <strong>bonyan-erp.com</strong>, the product's bilingual <strong>Next.js</strong> website where every customer starts: a tour of the real system, cloud and self-hosted pricing, free-trial sign-up and a public changelog of every release",
     "exp.b2": "Work directly with subscribers to collect feedback and feature requests, shipping them as per-company options so one product fits different activities and company structures",
     "exp.b3": "Designed and built Bonyan's accounting core: a <strong>5-level chart of accounts</strong>, a double-entry general ledger fed by ~50 automatic posting rules, and full financial statements &mdash; balance sheet, income statement, cash flow, equity changes and trial balance",
     "exp.b4": "Added period locking and atomic year-end close, IAS 16/36 fixed assets, IAS 2 weighted-average inventory, and procure-to-pay with three-way matching",
@@ -141,7 +142,7 @@ const translations = {
     "proj.itplusdash.title": "It Plus Dashboard",
     "proj.itplusdash.desc": "Back-office for the company's hosting and domain business: 40+ modules spanning orders, invoices, hosting plans, control panels, domains, products, coupons, currencies, payment methods, clients and ad campaigns &mdash; with ApexCharts reporting and rich-text content management throughout.",
     "proj.bonyan.cat": "SaaS Product &mdash; ERP &amp; Accounting",
-    "proj.bonyan.desc": "Multi-tenant SaaS ERP for project-based companies, with 160+ company workspaces. I built its foundation from scratch, now lead its team and product, and designed its accounting core &mdash; chart of accounts, double-entry ledger, period closing and financial statements &mdash; alongside fixed assets, inventory, purchasing and an AI (MCP) gateway.",
+    "proj.bonyan.desc": "Multi-tenant SaaS ERP for project-based companies, with 160+ company workspaces. I built its foundation and its website, bonyan-erp.com, now lead its team and product, and designed its accounting core &mdash; chart of accounts, double-entry ledger, period closing and financial statements &mdash; alongside fixed assets, inventory, purchasing and an AI (MCP) gateway.",
 
     "proj.loom.cat": "Construction ERP",
     "proj.loom.desc": "Construction management system I built from scratch &mdash; HR, projects, clients, contractors, custodies and invoices, with an Angular frontend and PHP backend. It became the foundation of Bonyan ERP.",
@@ -309,6 +310,7 @@ const translations = {
     "exp.role": "مهندس برمجيات &larr; قائد فريق ومدير منتج، بنيان ERP",
     "exp.date": "سبتمبر 2023 — حتى الآن",
     "exp.b1": "أقود فريق التطوير وأدير منتج <strong>بنيان ERP</strong>، نظام SaaS متعدد الشركات (قاعدة بيانات لكل شركة) بأكثر من <strong>160 مساحة عمل</strong> &mdash; خارطة الطريق والمواصفات ومراجعة الكود والإصدارات",
+    "exp.b6": "بنيت <strong>bonyan-erp.com</strong>، الموقع التعريفي للمنتج بـ<strong>Next.js</strong> باللغتين، ومنه يبدأ كل عميل: جولة في النظام الحقيقي، وأسعار السحابي والاستضافة الذاتية، والتسجيل في التجربة المجانية، وسجل عام لكل إصدار",
     "exp.b2": "أتواصل مباشرة مع المشتركين لجمع ملاحظاتهم وطلباتهم، وأنفّذها كخيارات قابلة للتخصيص لكل شركة ليناسب منتج واحد اختلاف الأنشطة وهياكل الشركات",
     "exp.b3": "صمّمت وبنيت القلب المحاسبي لبنيان: <strong>شجرة حسابات من 5 مستويات</strong>، وأستاذ عام بالقيد المزدوج تغذّيه نحو 50 قاعدة ترحيل تلقائي، وقوائم مالية كاملة &mdash; الميزانية وقائمة الدخل والتدفقات النقدية والتغير في حقوق الملكية وميزان المراجعة",
     "exp.b4": "أضفت إقفال الفترات وإقفال نهاية السنة، والأصول الثابتة وفق IAS 16/36، والمخزون بالمتوسط المرجّح وفق IAS 2، ودورة المشتريات بالمطابقة الثلاثية",
@@ -355,7 +357,7 @@ const translations = {
     "proj.itplusdash.title": "لوحة تحكم It Plus",
     "proj.itplusdash.desc": "النظام الإداري لأعمال الاستضافة والدومينات في الشركة: أكثر من 40 وحدة تشمل الطلبات والفواتير وخطط الاستضافة ولوحات التحكم والدومينات والمنتجات والكوبونات والعملات وطرق الدفع والعملاء والحملات الإعلانية &mdash; مع تقارير ApexCharts وإدارة محتوى بمحررات نصية متقدمة.",
     "proj.bonyan.cat": "منتج SaaS &mdash; ERP ومحاسبة",
-    "proj.bonyan.desc": "نظام ERP سحابي متعدد الشركات للشركات القائمة على المشاريع، بأكثر من 160 مساحة عمل. بنيت أساسه من الصفر، وأقود اليوم فريقه وأدير منتجه، وصمّمت قلبه المحاسبي &mdash; شجرة الحسابات والأستاذ العام بالقيد المزدوج وإقفال الفترات والقوائم المالية &mdash; إلى جانب الأصول الثابتة والمخزون والمشتريات وبوابة ذكاء اصطناعي (MCP).",
+    "proj.bonyan.desc": "نظام ERP سحابي متعدد الشركات للشركات القائمة على المشاريع، بأكثر من 160 مساحة عمل. بنيت أساسه وموقعه التعريفي، وأقود اليوم فريقه وأدير منتجه، وصمّمت قلبه المحاسبي &mdash; شجرة الحسابات والأستاذ العام بالقيد المزدوج وإقفال الفترات والقوائم المالية &mdash; إلى جانب الأصول الثابتة والمخزون والمشتريات وبوابة ذكاء اصطناعي (MCP).",
 
     "proj.loom.cat": "نظام ERP للبناء",
     "proj.loom.desc": "نظام لإدارة شركات المقاولات بنيته من الصفر &mdash; الموارد البشرية والمشاريع والعملاء والمقاولون والعهد والفواتير، بواجهة Angular وباك إند PHP. وأصبح أساس بنيان ERP.",

@@ -44,7 +44,7 @@
     "inLanguage": ["ar", "en"],
     "publisher": { "@type": "Organization", "name": "It Plus Programming Solutions", "url": "https://it-plus.co" }
   },
-  "keywords": "ERP, SaaS, multi-tenant, double-entry accounting, general ledger, chart of accounts, financial statements, IAS 16, IAS 2, three-way matching, Angular, PHP, Laravel, MySQL, Next.js, MCP, team lead, product manager"
+  "keywords": "ERP, SaaS, multi-tenant, double-entry accounting, general ledger, chart of accounts, financial statements, IAS 16, IAS 2, three-way matching, marketing website, Angular, PHP, Laravel, MySQL, Next.js, MCP, team lead, product manager"
 }
 </script>
 <style>
@@ -169,7 +169,7 @@ footer a{color:var(--blue-2)}
 <header class="hero"><div class="wrap">
   <div class="eyebrow" data-t="hero.eyebrow">Bonyan ERP &middot; SaaS product &middot; Team Lead &amp; Product Manager</div>
   <h1 data-t="hero.h1">An ERP whose books an <em>auditor</em> can read.</h1>
-  <p class="lede" data-t="hero.lede">Bonyan is a multi-tenant SaaS ERP for project-based companies &mdash; contracting, finishing and fit-out firms that need to know which project makes money. I built its foundation, <b>Loom ERP</b>, from scratch; today I <b>lead the development team and own the product</b>. Its accounting core was designed by the accountant I used to be: a <b>Bachelor of Commerce in Accounting</b> and two years of audit and tax work before I wrote production code.</p>
+  <p class="lede" data-t="hero.lede">Bonyan is a multi-tenant SaaS ERP for project-based companies &mdash; contracting, finishing and fit-out firms that need to know which project makes money. I built its foundation, <b>Loom ERP</b>, from scratch, and its public website, <b>bonyan-erp.com</b>; today I <b>lead the development team and own the product</b>. Its accounting core was designed by the accountant I used to be: a <b>Bachelor of Commerce in Accounting</b> and two years of audit and tax work before I wrote production code.</p>
   <div class="facts">
     <span class="fact"><b>160+</b> <span data-t="f.tenants">company workspaces</span></span>
     <span class="fact"><b>75</b> <span data-t="f.accounts">accounts in the seed chart</span></span>
@@ -250,6 +250,20 @@ footer a{color:var(--blue-2)}
     <div class="note"><h3 data-t="l4.h">AI agents with a seatbelt</h3><p data-t="l4.p">An MCP gateway lets Claude or ChatGPT work inside a company&rsquo;s workspace: OAuth 2.0 with PKCE, 24 scopes, around 68 tools &mdash; and a human approval step before anything that deletes, approves or pays.</p></div>
     <div class="note"><h3 data-t="l5.h">One database per company</h3><p data-t="l5.p">Every tenant gets its own MySQL database, resolved from its subdomain and provisioned by a queued job from a schema template plus 122 numbered migrations. A full export and restore runs through a shadow database with an atomic swap.</p></div>
     <div class="note"><h3 data-t="l6.h">Tested like money depends on it</h3><p data-t="l6.p">Backend parity tests and report probes, PHPUnit on the SaaS layer, and 194 frontend spec files with about 1,800 test cases &mdash; most of the ledger, inventory and report tests are mine.</p></div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="shead">
+    <div class="skicker" data-t="k.saas">The website</div>
+    <h2 data-t="h.saas">bonyan-erp.com &mdash; where every customer starts.</h2>
+    <p class="snote" data-t="n.saas">I also built the product&rsquo;s public website: the first thing a contracting company sees, and the page that turns a visitor into a trial.</p>
+  </div>
+  <div class="notes">
+    <div class="note"><h3 data-t="s1.h">Arabic and English, properly</h3><p data-t="s1.p">Next.js with next-intl and a true RTL layout, so the Arabic site is a first-class site rather than a translated one.</p></div>
+    <div class="note"><h3 data-t="s2.h">Shows the real product</h3><p data-t="s2.p">A narrated tour of the live system and high-resolution captures of the dashboard, treasury and financial reports &mdash; no mock-ups.</p></div>
+    <div class="note"><h3 data-t="s3.h">Pricing that answers questions</h3><p data-t="s3.p">Cloud or self-hosted, monthly or yearly, with the local payment options spelled out &mdash; then a 14-day free trial with no card.</p></div>
+    <div class="note"><h3 data-t="s4.h">A public &ldquo;What&rsquo;s new&rdquo;</h3><p data-t="s4.p">Every release is published to a changelog on the site, so subscribers see the product moving &mdash; and the requests they sent turning into features.</p></div>
   </div>
 </div></section>
 
@@ -362,7 +376,7 @@ const T = {
   'nav.back':['Back to portfolio','رجوع للبورتفوليو'],
   'hero.eyebrow':['Bonyan ERP &middot; SaaS product &middot; Team Lead &amp; Product Manager','بنيان ERP &middot; منتج SaaS &middot; قائد فريق ومدير منتج'],
   'hero.h1':['An ERP whose books an <em>auditor</em> can read.','نظام ERP يستطيع <em>المراجع</em> أن يقرأ دفاتره.'],
-  'hero.lede':['Bonyan is a multi-tenant SaaS ERP for project-based companies &mdash; contracting, finishing and fit-out firms that need to know which project makes money. I built its foundation, <b>Loom ERP</b>, from scratch; today I <b>lead the development team and own the product</b>. Its accounting core was designed by the accountant I used to be: a <b>Bachelor of Commerce in Accounting</b> and two years of audit and tax work before I wrote production code.','بنيان نظام ERP سحابي متعدد الشركات للشركات القائمة على المشاريع &mdash; شركات المقاولات والتشطيبات التي تحتاج أن تعرف أي مشروع يربح. بنيت أساسه، <b>Loom ERP</b>، من الصفر، واليوم <b>أقود فريق التطوير وأدير المنتج</b>. وصمّمت قلبه المحاسبي بعين المحاسب الذي كنته: <b>بكالوريوس تجارة شعبة محاسبة</b> وعامان في المراجعة والضرائب قبل أن أكتب كوداً في الإنتاج.'],
+  'hero.lede':['Bonyan is a multi-tenant SaaS ERP for project-based companies &mdash; contracting, finishing and fit-out firms that need to know which project makes money. I built its foundation, <b>Loom ERP</b>, from scratch, and its public website, <b>bonyan-erp.com</b>; today I <b>lead the development team and own the product</b>. Its accounting core was designed by the accountant I used to be: a <b>Bachelor of Commerce in Accounting</b> and two years of audit and tax work before I wrote production code.','بنيان نظام ERP سحابي متعدد الشركات للشركات القائمة على المشاريع &mdash; شركات المقاولات والتشطيبات التي تحتاج أن تعرف أي مشروع يربح. بنيت أساسه، <b>Loom ERP</b>، من الصفر، وموقعه التعريفي <b>bonyan-erp.com</b>، واليوم <b>أقود فريق التطوير وأدير المنتج</b>. وصمّمت قلبه المحاسبي بعين المحاسب الذي كنته: <b>بكالوريوس تجارة شعبة محاسبة</b> وعامان في المراجعة والضرائب قبل أن أكتب كوداً في الإنتاج.'],
   'f.tenants':['company workspaces','مساحة عمل لشركات'],
   'f.accounts':['accounts in the seed chart','حساباً في الشجرة الأساسية'],
   'f.rules':['automatic posting roles','قاعدة ترحيل تلقائي'],
@@ -412,6 +426,17 @@ const T = {
   'l5.p':['Every tenant gets its own MySQL database, resolved from its subdomain and provisioned by a queued job from a schema template plus 122 numbered migrations. A full export and restore runs through a shadow database with an atomic swap.','كل شركة لها قاعدة بيانات MySQL مستقلة، تُحدَّد من النطاق الفرعي وتُنشأ عبر مهمة في الطابور من قالب مخطط و122 ترحيلاً مرقّماً. والتصدير والاستعادة الكاملة تتم عبر قاعدة ظل مع تبديل ذرّي.'],
   'l6.h':['Tested like money depends on it','مُختبَر كأن المال يعتمد عليه'],
   'l6.p':['Backend parity tests and report probes, PHPUnit on the SaaS layer, and 194 frontend spec files with about 1,800 test cases &mdash; most of the ledger, inventory and report tests are mine.','اختبارات تطابق وفحوص تقارير في الباك إند، وPHPUnit في طبقة الـSaaS، و194 ملف اختبار في الواجهة بنحو 1,800 حالة &mdash; ومعظم اختبارات الأستاذ العام والمخزون والتقارير كتبتها بنفسي.'],
+  'k.saas':['The website','الموقع'],
+  'h.saas':['bonyan-erp.com &mdash; where every customer starts.','bonyan-erp.com &mdash; من هنا يبدأ كل عميل.'],
+  'n.saas':['I also built the product&rsquo;s public website: the first thing a contracting company sees, and the page that turns a visitor into a trial.','وبنيت أيضاً الموقع التعريفي للمنتج: أول ما تراه شركة المقاولات، والصفحة التي تحوّل الزائر إلى مشترك تجريبي.'],
+  's1.h':['Arabic and English, properly','عربي وإنجليزي كما يجب'],
+  's1.p':['Next.js with next-intl and a true RTL layout, so the Arabic site is a first-class site rather than a translated one.','Next.js مع next-intl وتخطيط RTL حقيقي، فالموقع العربي موقع أصيل لا ترجمة لموقع إنجليزي.'],
+  's2.h':['Shows the real product','يعرض المنتج الحقيقي'],
+  's2.p':['A narrated tour of the live system and high-resolution captures of the dashboard, treasury and financial reports &mdash; no mock-ups.','جولة مسجّلة بالصوت في النظام الحقيقي، ولقطات عالية الدقة للوحة التحكم والخزينة والتقارير المالية &mdash; بلا تصميمات وهمية.'],
+  's3.h':['Pricing that answers questions','أسعار تجيب عن الأسئلة'],
+  's3.p':['Cloud or self-hosted, monthly or yearly, with the local payment options spelled out &mdash; then a 14-day free trial with no card.','سحابي أو على سيرفر العميل، شهري أو سنوي، مع وضوح وسائل الدفع المحلية &mdash; ثم تجربة مجانية 14 يوماً بلا بطاقة.'],
+  's4.h':['A public &ldquo;What&rsquo;s new&rdquo;','صفحة «ما الجديد» العامة'],
+  's4.p':['Every release is published to a changelog on the site, so subscribers see the product moving &mdash; and the requests they sent turning into features.','كل إصدار يُنشر في سجل التحديثات على الموقع، فيرى المشتركون المنتج يتطور &mdash; ويرون طلباتهم وقد صارت ميزات.'],
   'k.stack':['Under the hood','تحت الغطاء'],
   'h.stack':['Five repositories, one product.','خمسة مستودعات، منتج واحد.'],
   'n.stack':['An Angular ERP client, a PHP 8 API with the accounting engine, a Laravel 12 SaaS layer for subscriptions, billing and tenant provisioning, and two Next.js apps for the admin dashboard and the bilingual marketing site.','واجهة ERP بـAngular، وواجهة API بـPHP 8 تحمل المحرك المحاسبي، وطبقة SaaS بـLaravel 12 للاشتراكات والفوترة وإنشاء الشركات، وتطبيقا Next.js للوحة الإدارة والموقع التسويقي ثنائي اللغة.'],
