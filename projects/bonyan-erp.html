@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bonyan ERP — Multi-Tenant SaaS ERP &amp; Accounting Core | Mohamed Elsayed</title>
+<meta name="description" content="Case study: Bonyan ERP, a multi-tenant SaaS ERP for project-based companies with 160+ company workspaces. Mohamed Elsayed, a former accountant, built its foundation from scratch, leads its team and product, and designed its double-entry general ledger, chart of accounts and financial statements.">
+<meta name="author" content="Mohamed Mahmoud Elsayed Ahmed">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://eng-mohamed-elsayedahmed.github.io/portfolio/projects/bonyan-erp.html">
+<meta name="theme-color" content="#0B63BC">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Bonyan ERP — an ERP whose books an auditor can read">
+<meta property="og:description" content="Multi-tenant SaaS ERP with a double-entry accounting core designed by a former accountant. Case study by Mohamed Elsayed, Team Lead &amp; Product Manager.">
+<meta property="og:url" content="https://eng-mohamed-elsayedahmed.github.io/portfolio/projects/bonyan-erp.html">
+<meta property="og:image" content="https://eng-mohamed-elsayedahmed.github.io/portfolio/assets/img/projects/bonyan-financial.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/img/favicon-32x32.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Bonyan ERP — a multi-tenant SaaS ERP with a double-entry accounting core",
+  "url": "https://eng-mohamed-elsayedahmed.github.io/portfolio/projects/bonyan-erp.html",
+  "image": "https://eng-mohamed-elsayedahmed.github.io/portfolio/assets/img/projects/bonyan-financial.jpg",
+  "inLanguage": ["en", "ar"],
+  "dateModified": "2026-10-14",
+  "author": {
+    "@type": "Person",
+    "name": "Mohamed Mahmoud Elsayed Ahmed",
+    "jobTitle": "Software Engineer, Team Lead & Product Manager",
+    "url": "https://eng-mohamed-elsayedahmed.github.io/portfolio/"
+  },
+  "about": {
+    "@type": "SoftwareApplication",
+    "name": "Bonyan ERP",
+    "url": "https://bonyan-erp.com",
+    "applicationCategory": "BusinessApplication",
+    "applicationSubCategory": "ERP and accounting software for project-based companies",
+    "operatingSystem": "Web",
+    "inLanguage": ["ar", "en"],
+    "publisher": { "@type": "Organization", "name": "It Plus Programming Solutions", "url": "https://it-plus.co" }
+  },
+  "keywords": "ERP, SaaS, multi-tenant, double-entry accounting, general ledger, chart of accounts, financial statements, IAS 16, IAS 2, three-way matching, Angular, PHP, Laravel, MySQL, Next.js, MCP, team lead, product manager"
+}
+</script>
+<style>
+/* Palette taken from the Bonyan product itself (bonyan-saas-website globals.css). */
+:root{
+  --blue:#0B63BC; --blue-2:#46A6FF; --navy:#0F1C33; --ok:#22A06B; --warn:#E5A50A;
+  --font-display:'Cairo',sans-serif; --font-body:'Inter',sans-serif; --font-mono:'JetBrains Mono',monospace;
+  --maxw:1100px; --r:14px;
+  --bg:#0A111E; --bg-2:#0F1828; --panel:#121E31; --line:rgba(255,255,255,.09);
+  --ink:#EEF3FA; --ink-2:#A4B2C7; --ink-3:#73839B; --glow:rgba(70,166,255,.13); --hl:rgba(70,166,255,.16);
+}
+:root[data-theme="light"]{
+  --bg:#F3F7FC; --bg-2:#FFFFFF; --panel:#FFFFFF; --line:rgba(11,99,188,.14);
+  --ink:#0F1C33; --ink-2:#44546C; --ink-3:#6B7A91; --glow:rgba(11,99,188,.08); --hl:rgba(11,99,188,.10);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{background:var(--bg);color:var(--ink);font-family:var(--font-body);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+[dir="rtl"] body{font-family:var(--font-display)}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+:focus-visible{outline:2px solid var(--blue-2);outline-offset:3px;border-radius:4px}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+
+.bar{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.bar-in{max-width:var(--maxw);margin:0 auto;padding:14px 24px;display:flex;align-items:center;gap:12px}
+.back{font-family:var(--font-mono);font-size:.82rem;color:var(--ink-2);display:inline-flex;align-items:center;gap:8px}
+.back:hover{color:var(--blue-2)}
+.bar-sp{flex:1}
+.tbtn{border:1px solid var(--line);background:transparent;color:var(--ink-2);font:inherit;font-size:.78rem;font-weight:600;padding:7px 13px;border-radius:999px;cursor:pointer}
+.tbtn:hover{color:var(--ink);border-color:var(--blue-2)}
+
+.hero{padding:72px 0 48px;position:relative}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 60% 55% at 15% 0%,var(--glow),transparent 70%);pointer-events:none}
+.eyebrow{font-family:var(--font-mono);font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--blue-2);margin-bottom:20px}
+:root[data-theme="light"] .eyebrow{color:var(--blue)}
+h1{font-family:var(--font-display);font-weight:900;font-size:clamp(2rem,4.8vw,3.5rem);line-height:1.12;letter-spacing:-.02em;max-width:18ch}
+h1 em{font-style:normal;color:var(--blue-2)}
+:root[data-theme="light"] h1 em{color:var(--blue)}
+.lede{margin-top:22px;max-width:64ch;color:var(--ink-2);font-size:1.04rem}
+.lede b{color:var(--ink)}
+.facts{margin-top:34px;display:flex;flex-wrap:wrap;gap:10px}
+.fact{border:1px solid var(--line);border-radius:999px;padding:7px 15px;font-family:var(--font-mono);font-size:.76rem;color:var(--ink-2)}
+.fact b{color:var(--ink);font-weight:600}
+.cta{margin-top:30px;display:flex;flex-wrap:wrap;gap:10px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:11px 20px;border-radius:10px;font-weight:600;font-size:.9rem;border:1px solid var(--line);color:var(--ink)}
+.btn.primary{background:var(--blue);border-color:var(--blue);color:#fff}
+.btn:hover{border-color:var(--blue-2)}
+
+.shot{margin:8px 0 0;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:var(--panel);box-shadow:0 30px 80px -40px rgba(11,99,188,.55)}
+.shot figcaption{font-size:.8rem;color:var(--ink-3);padding:10px 16px;border-top:1px solid var(--line)}
+
+section{padding:60px 0;border-top:1px solid var(--line)}
+.shead{margin-bottom:30px}
+.skicker{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-3);margin-bottom:11px}
+h2{font-family:var(--font-display);font-weight:700;font-size:clamp(1.35rem,2.6vw,1.9rem);line-height:1.25;letter-spacing:-.01em;max-width:30ch}
+.snote{margin-top:12px;max-width:66ch;color:var(--ink-2);font-size:.95rem}
+.snote code,.note code{font-family:var(--font-mono);font-size:.84em;background:var(--panel);border:1px solid var(--line);border-radius:4px;padding:1px 5px;color:var(--blue-2)}
+:root[data-theme="light"] .snote code,:root[data-theme="light"] .note code{color:var(--blue)}
+
+/* ---- ledger explorer (the signature) ---- */
+.events{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
+.ev{border:1px solid var(--line);background:transparent;color:var(--ink-2);font:inherit;font-size:.82rem;font-weight:600;padding:9px 15px;border-radius:999px;cursor:pointer;transition:.18s}
+.ev:hover{border-color:var(--blue-2);color:var(--ink)}
+.ev[aria-pressed="true"]{background:var(--blue);border-color:var(--blue);color:#fff}
+.lx{display:grid;grid-template-columns:1.35fr 1fr;gap:16px;align-items:start}
+.card{border:1px solid var(--line);border-radius:var(--r);background:var(--panel);overflow:hidden}
+.card-h{display:flex;justify-content:space-between;gap:12px;padding:14px 18px;border-bottom:1px solid var(--line);font-family:var(--font-mono);font-size:.74rem;color:var(--ink-3)}
+.say{padding:16px 18px;color:var(--ink-2);font-size:.92rem;border-bottom:1px solid var(--line);min-height:4.6em}
+.say b{color:var(--ink)}
+table{width:100%;border-collapse:collapse;font-size:.88rem}
+th,td{padding:10px 18px;text-align:start;border-bottom:1px solid var(--line)}
+th{font-family:var(--font-mono);font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);font-weight:500}
+td.code{font-family:var(--font-mono);color:var(--blue-2);width:72px}
+:root[data-theme="light"] td.code{color:var(--blue)}
+td.num,th.num{text-align:end;font-family:var(--font-mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+td.cr{padding-inline-start:38px}
+tr.tot td{font-weight:700;color:var(--ink);border-bottom:none}
+.bal{display:flex;align-items:center;gap:8px;padding:12px 18px;font-family:var(--font-mono);font-size:.76rem;color:var(--ok);border-top:1px solid var(--line)}
+.tree{padding:12px 10px 14px;font-size:.84rem}
+.tree ul{list-style:none}
+.tree li{padding:3px 8px;border-radius:6px;display:flex;gap:10px;color:var(--ink-3);transition:.2s}
+.tree li .c{font-family:var(--font-mono);font-size:.76rem;min-width:44px}
+.tree li.l1{color:var(--ink);font-weight:700;margin-top:6px}
+.tree li.l2{padding-inline-start:22px;color:var(--ink-2)}
+.tree li.l3{padding-inline-start:44px}
+.tree li.on{background:var(--hl);color:var(--ink)}
+.tree li.on .c{color:var(--blue-2)}
+:root[data-theme="light"] .tree li.on .c{color:var(--blue)}
+.fine{margin-top:14px;font-size:.78rem;color:var(--ink-3);max-width:80ch}
+
+/* ---- notes ---- */
+.notes{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--line);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.note{background:var(--bg-2);padding:24px 26px}
+.note h3{font-family:var(--font-display);font-size:1.02rem;font-weight:700;margin-bottom:9px}
+.note p{color:var(--ink-2);font-size:.92rem}
+
+.stack{display:flex;flex-wrap:wrap;gap:8px}
+.st{font-family:var(--font-mono);font-size:.78rem;border:1px solid var(--line);border-radius:8px;padding:8px 13px;color:var(--ink-2)}
+.st b{color:var(--ink);font-weight:500}
+
+footer{border-top:1px solid var(--line);padding:40px 0 60px;color:var(--ink-3);font-size:.86rem}
+footer a{color:var(--blue-2)}
+.disc{max-width:70ch}
+
+[dir="rtl"] .eyebrow,[dir="rtl"] .skicker,[dir="rtl"] .back,[dir="rtl"] .fact,[dir="rtl"] .card-h,[dir="rtl"] th,[dir="rtl"] .bal,[dir="rtl"] .st{font-family:var(--font-display);letter-spacing:0}
+@media(max-width:860px){.lx{grid-template-columns:1fr}.notes{grid-template-columns:1fr}}
+@media(max-width:560px){.hero{padding:48px 0 36px}th,td{padding:9px 12px}td.cr{padding-inline-start:26px}td.code{width:56px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<div class="bar"><div class="bar-in">
+  <a class="back" href="../index.html#projects"><span aria-hidden="true">&#8592;</span> <span data-t="nav.back">Back to portfolio</span></a>
+  <span class="bar-sp"></span>
+  <button class="tbtn" id="lang" type="button">العربية</button>
+  <button class="tbtn" id="theme" type="button" aria-label="Toggle theme">&#9788;</button>
+</div></div>
+
+<main>
+<header class="hero"><div class="wrap">
+  <div class="eyebrow" data-t="hero.eyebrow">Bonyan ERP &middot; SaaS product &middot; Team Lead &amp; Product Manager</div>
+  <h1 data-t="hero.h1">An ERP whose books an <em>auditor</em> can read.</h1>
+  <p class="lede" data-t="hero.lede">Bonyan is a multi-tenant SaaS ERP for project-based companies &mdash; contracting, finishing and fit-out firms that need to know which project makes money. I built its foundation, <b>Loom ERP</b>, from scratch; today I <b>lead the development team and own the product</b>. Its accounting core was designed by the accountant I used to be: a <b>Bachelor of Commerce in Accounting</b> and two years of audit and tax work before I wrote production code.</p>
+  <div class="facts">
+    <span class="fact"><b>160+</b> <span data-t="f.tenants">company workspaces</span></span>
+    <span class="fact"><b>75</b> <span data-t="f.accounts">accounts in the seed chart</span></span>
+    <span class="fact"><b>~50</b> <span data-t="f.rules">automatic posting roles</span></span>
+    <span class="fact"><b>172</b> <span data-t="f.perms">permission flags</span></span>
+    <span class="fact"><b>47</b> <span data-t="f.reports">PDF &amp; Excel reports</span></span>
+    <span class="fact"><b>8 &rarr; 21</b> <span data-t="f.ng">Angular upgrade</span></span>
+  </div>
+  <div class="cta">
+    <a class="btn primary" href="https://bonyan-erp.com" target="_blank" rel="noopener"><span data-t="cta.live">Visit bonyan-erp.com</span> &#8599;</a>
+    <a class="btn" href="#ledger" data-t="cta.try">Try the ledger explorer &#8595;</a>
+  </div>
+</div></header>
+
+<div class="wrap">
+  <figure class="shot">
+    <img src="../assets/img/projects/bonyan-dashboard.jpg" alt="Bonyan ERP dashboard showing net treasury, collections, actual profit, margin and 12-week cash flow" width="1400" height="781" loading="eager">
+    <figcaption data-t="cap.dash">The owner dashboard: treasury, collections, billed-but-uncollected, actual vs. expected profit and a 12-week cash flow &mdash; all read from the same ledger.</figcaption>
+  </figure>
+</div>
+
+<section id="ledger"><div class="wrap">
+  <div class="shead">
+    <div class="skicker" data-t="k.ledger">The signature feature</div>
+    <h2 data-t="h.ledger">Pick a business event. Watch the ledger post it.</h2>
+    <p class="snote" data-t="n.ledger">Users never write journal entries for daily work. They record what happened &mdash; a progress bill, a contractor statement, a goods receipt &mdash; and Bonyan derives the double entry from about fifty mapped posting roles. The source document stays the single source of truth; the ledger is a projection of it, so the two can never disagree.</p>
+  </div>
+  <div class="events" id="evBtns" role="group" aria-label="Business events"></div>
+  <div class="lx">
+    <div class="card">
+      <div class="card-h"><span data-t="t.entry">Journal entry</span><span id="evSrc"></span></div>
+      <div class="say" id="evSay"></div>
+      <table>
+        <thead><tr><th data-t="t.code">Code</th><th data-t="t.acct">Account</th><th class="num" data-t="t.dr">Debit</th><th class="num" data-t="t.cr">Credit</th></tr></thead>
+        <tbody id="evRows"></tbody>
+      </table>
+      <div class="bal" id="evBal"></div>
+    </div>
+    <div class="card">
+      <div class="card-h"><span data-t="t.chart">Chart of accounts</span><span data-t="t.depth">5 levels &middot; 5 roots</span></div>
+      <div class="tree"><ul id="coa"></ul></div>
+    </div>
+  </div>
+  <p class="fine" data-t="n.fine">Account codes and names are the real seed chart every new Bonyan tenant starts with (shortened here). Amounts are illustrative; tax rates and payroll deductions are configured per company.</p>
+</div></section>
+
+<section><div class="wrap">
+  <div class="shead">
+    <div class="skicker" data-t="k.acc">Why an accountant built it</div>
+    <h2 data-t="h.acc">Decisions that come from having closed the books myself.</h2>
+  </div>
+  <div class="notes">
+    <div class="note"><h3 data-t="a1.h">A tree, not a list</h3><p data-t="a1.p">The chart of accounts is a five-level tree under five roots &mdash; assets, liabilities, equity, revenue, expenses. Children inherit their root&rsquo;s type, codes extend the parent&rsquo;s code, and contra accounts carry their own normal side: partner withdrawals sit in equity with a <em>debit</em> nature, the doubtful-debts allowance in assets with a <em>credit</em> one.</p></div>
+    <div class="note"><h3 data-t="a2.h">Nothing hides in suspense</h3><p data-t="a2.p">Anything that cannot be mapped cleanly lands in suspense account <code>1901</code> &mdash; and automated probes fail the build if it is not empty. Parity tests compare every report against the ledger, so the trial balance and the project-profit screen can never tell different stories.</p></div>
+    <div class="note"><h3 data-t="a3.h">Closed means closed</h3><p data-t="a3.p">Months lock. A closed month is frozen as a snapshot protected by a hash chain, so any later change is detectable. Reopening creates a numbered revision instead of silently rewriting history, and year-end close moves the result to retained earnings in one atomic step.</p></div>
+    <div class="note"><h3 data-t="a4.h">Posted entries are reversed, never edited</h3><p data-t="a4.p">Manual journal entries move from draft to posted. After that the only way to correct one is a reversing entry &mdash; exactly the audit trail I used to ask clients for.</p></div>
+    <div class="note"><h3 data-t="a5.h">Standards, not shortcuts</h3><p data-t="a5.p">Fixed assets follow IAS 16 and IAS 36: straight-line and declining-balance depreciation, revaluations, impairment and its reversal, disposal with gain or loss. Inventory follows IAS 2 with a moving weighted-average cost per item per warehouse.</p></div>
+    <div class="note"><h3 data-t="a6.h">Procure-to-pay that reconciles</h3><p data-t="a6.p">Purchase requests, orders, receipts and supplier bills are settled by three-way matching through a goods-received-not-invoiced account (<code>2107</code>), with retentions, credit notes, input VAT and withholding handled on the way.</p></div>
+  </div>
+</div></section>
+
+<div class="wrap">
+  <figure class="shot">
+    <img src="../assets/img/projects/bonyan-financial.jpg" alt="Bonyan ERP financial reports: income statement and project profitability with PDF and Excel export" width="1400" height="781" loading="lazy">
+    <figcaption data-t="cap.fin">Financial reports: income statement next to per-project profitability, exportable to PDF or Excel. Balance sheet, cash flow, equity changes, trial balance and aging sit one tab away.</figcaption>
+  </figure>
+</div>
+
+<section><div class="wrap">
+  <div class="shead">
+    <div class="skicker" data-t="k.lead">Leading the product</div>
+    <h2 data-t="h.lead">From the first line of Loom to running the team behind Bonyan.</h2>
+  </div>
+  <div class="notes">
+    <div class="note"><h3 data-t="l1.h">Built the foundation from scratch</h3><p data-t="l1.p">Loom ERP &mdash; projects, BOQ items, contractors, custodies, vouchers, HR &mdash; was my build from an empty repository. Bonyan grew out of it, and I have since added the general ledger, financial statements, fixed assets, inventory, purchasing, payroll accruals, project taxes and the AI gateway.</p></div>
+    <div class="note"><h3 data-t="l2.h">Team lead and product manager</h3><p data-t="l2.p">I own the roadmap, and it starts with subscribers: I talk to owners and accountants directly and turn their requests into specs. No two contracting firms work alike, so features usually ship as per-company options &mdash; cash or accrual reporting, per-project tax rules, permission profiles &mdash; not one fixed workflow. Big designs are reviewed adversarially before merge; releases ship through one ordered command: backup, tenant migrations, deploy.</p></div>
+    <div class="note"><h3 data-t="l3.h">Faster, without breaking a route</h3><p data-t="l3.p">I upgraded the frontend from Angular 8 to 21 in thirteen incremental steps, keeping every route working at each one &mdash; 231 components and 83 services carried forward onto a faster, lighter build. Speed and usability fixes since then come straight from where users get stuck.</p></div>
+    <div class="note"><h3 data-t="l4.h">AI agents with a seatbelt</h3><p data-t="l4.p">An MCP gateway lets Claude or ChatGPT work inside a company&rsquo;s workspace: OAuth 2.0 with PKCE, 24 scopes, around 68 tools &mdash; and a human approval step before anything that deletes, approves or pays.</p></div>
+    <div class="note"><h3 data-t="l5.h">One database per company</h3><p data-t="l5.p">Every tenant gets its own MySQL database, resolved from its subdomain and provisioned by a queued job from a schema template plus 122 numbered migrations. A full export and restore runs through a shadow database with an atomic swap.</p></div>
+    <div class="note"><h3 data-t="l6.h">Tested like money depends on it</h3><p data-t="l6.p">Backend parity tests and report probes, PHPUnit on the SaaS layer, and 194 frontend spec files with about 1,800 test cases &mdash; most of the ledger, inventory and report tests are mine.</p></div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="shead">
+    <div class="skicker" data-t="k.stack">Under the hood</div>
+    <h2 data-t="h.stack">Five repositories, one product.</h2>
+    <p class="snote" data-t="n.stack">An Angular ERP client, a PHP 8 API with the accounting engine, a Laravel 12 SaaS layer for subscriptions, billing and tenant provisioning, and two Next.js apps for the admin dashboard and the bilingual marketing site.</p>
+  </div>
+  <div class="stack">
+    <span class="st"><b>Angular 21</b> &middot; TypeScript</span>
+    <span class="st"><b>PHP 8</b> &middot; JWT &middot; mPDF &middot; PhpSpreadsheet</span>
+    <span class="st"><b>Laravel 12</b> &middot; Sanctum &middot; Reverb &middot; Queues</span>
+    <span class="st"><b>MySQL</b> &middot; database-per-tenant</span>
+    <span class="st"><b>Next.js 16</b> &middot; React 19 &middot; next-intl</span>
+    <span class="st"><b>MCP</b> &middot; OAuth 2.0 + PKCE</span>
+    <span class="st"><b>GitLab CI</b> &middot; PM2 &middot; Cloudflare</span>
+    <span class="st"><b>PayPal</b> &middot; InstaPay &middot; Vodafone Cash</span>
+    <span class="st" data-t="s.rtl">Arabic-first RTL &middot; English</span>
+  </div>
+</div></section>
+</main>
+
+<footer><div class="wrap">
+  <p class="disc" data-t="foot.disc">Bonyan ERP is a commercial product of It Plus Programming Solutions. Figures on this page come from the codebase and its git history as of October 2026; the workspace count includes trial and demo companies.</p>
+  <p style="margin-top:16px"><a href="../index.html#projects" data-t="foot.back">&#8592; Back to the rest of the work</a></p>
+</div></footer>
+
+<script>
+// Real seed chart (subset). [code, en, ar, level]
+const COA = [
+  ['1','Assets','الأصول',1],
+  ['11','Cash &amp; treasuries','النقدية وما في حكمها',2],
+  ['13','Customers &amp; receivables','العملاء والمدينون',2],
+  ['1301','Customer receivables','مستحقات على العملاء',3],
+  ['1302','Tax withheld by customers','ضرائب مخصومة من المنبع',3],
+  ['14','Prepayments &amp; other debtors','مدينون ومدفوعات مقدمة',2],
+  ['1402','Input VAT on purchases','ضريبة القيمة المضافة على المشتريات',3],
+  ['15','Fixed assets','الأصول الثابتة',2],
+  ['16','Inventory','المخزون',2],
+  ['1601','Materials inventory','مخزون المواد',3],
+  ['2','Liabilities','الالتزامات',1],
+  ['21','Suppliers &amp; contractors','الموردون والمقاولون',2],
+  ['2101','Supplier payables','مستحقات الموردين',3],
+  ['2102','Contractor payables','مستحقات المقاولين',3],
+  ['2104','Employee payables','مستحقات الموظفين',3],
+  ['2106','Retentions payable','محتجزات ضمان أعمال',3],
+  ['2107','Goods received, not invoiced','مشتريات مستلمة لم تُفوتر',3],
+  ['22','Tax liabilities','التزامات ضريبية',2],
+  ['2201','Output VAT','ضريبة القيمة المضافة',3],
+  ['2203','Social insurance payable','تأمينات اجتماعية مستحقة',3],
+  ['2204','Payroll tax payable','ضريبة كسب العمل المستحقة',3],
+  ['3','Equity','حقوق الملكية',1],
+  ['32','Partners','الشركاء',2],
+  ['3202','Partner withdrawals','مسحوبات الشركاء',3],
+  ['34','Retained earnings','الأرباح المرحّلة',2],
+  ['4','Revenue','الإيرادات',1],
+  ['41','Operating revenue','إيرادات التشغيل',2],
+  ['4101','Contract revenue','إيرادات تنفيذ الأعمال',3],
+  ['5','Expenses','المصروفات',1],
+  ['51','Cost of execution','تكلفة التنفيذ',2],
+  ['5101','Contractor cost','تكلفة تنفيذ المقاولين',3],
+  ['52','Salaries &amp; wages','الرواتب والأجور',2],
+  ['5201','Salaries &amp; staff services','رواتب وأجور وخدمات الموظفين',3],
+  ['5202','Employer insurance share','حصة صاحب العمل في التأمينات',3],
+  ['54','Depreciation &amp; impairment','الإهلاك والاضمحلال',2],
+  ['5401','Depreciation &amp; amortisation','إهلاك وإطفاء',3]
+];
+const NAME = Object.fromEntries(COA.map(a=>[a[0],[a[1],a[2]]]));
+NAME['11xx'] = ['Treasury &mdash; main bank','الخزينة &mdash; البنك الرئيسي'];
+NAME['15xx'] = ['Accumulated depreciation &mdash; site equipment','مجمع إهلاك &mdash; معدات المواقع'];
+
+// [code, debit, credit]
+const EVENTS = [
+  {id:'bill', en:'Bill a client', ar:'فاتورة مستخلص لعميل', src:'Progress billing',srcAr:'مستخلص عميل',
+   sayEn:'A <b>progress bill</b> of 100,000 for executed work, with 14% VAT. Revenue is recognised when billed, not when cash arrives &mdash; the accrual view sits next to a cash view in the income statement.',
+   sayAr:'<b>مستخلص</b> بقيمة 100,000 عن أعمال منفذة، مع ضريبة قيمة مضافة 14%. الإيراد يُثبت عند الفوترة لا عند التحصيل &mdash; وقائمة الدخل تعرض أساس الاستحقاق بجوار الأساس النقدي.',
+   lines:[['1301',114000,0],['4101',0,100000],['2201',0,14000]]},
+  {id:'collect', en:'Client pays', ar:'تحصيل من العميل', src:'Receipt voucher',srcAr:'سند قبض',
+   sayEn:'The client pays the bill but <b>withholds 1% income tax at source</b>. The withheld amount is not lost &mdash; it becomes a tax asset the company can offset later.',
+   sayAr:'العميل يسدّد المستخلص لكنه <b>يخصم 1% ضريبة من المنبع</b>. المبلغ المخصوم لا يضيع &mdash; بل يُثبت أصلاً ضريبياً تستطيع الشركة مقاصته لاحقاً.',
+   lines:[['11xx',113000,0],['1302',1000,0],['1301',0,114000]]},
+  {id:'contractor', en:'Contractor statement', ar:'مستخلص مقاول', src:'Contractor bill',srcAr:'فاتورة مقاول',
+   sayEn:'A subcontractor&rsquo;s statement of 50,000 for plastering, with a <b>5% performance retention</b> held back until handover. The cost lands on the project, so project profit updates immediately.',
+   sayAr:'مستخلص مقاول باطن بقيمة 50,000 لأعمال المحارة، مع <b>محتجز ضمان 5%</b> حتى التسليم. التكلفة تُحمّل على المشروع، فتتحدّث ربحيته فوراً.',
+   lines:[['5101',50000,0],['2102',0,47500],['2106',0,2500]]},
+  {id:'grn', en:'Goods received', ar:'استلام مواد', src:'Goods receipt',srcAr:'إذن استلام',
+   sayEn:'Materials arrive at the warehouse <b>before the supplier&rsquo;s invoice</b>. Stock goes up at moving weighted-average cost, and the obligation waits in a goods-received-not-invoiced account.',
+   sayAr:'المواد تصل للمخزن <b>قبل فاتورة المورد</b>. المخزون يزيد بمتوسط التكلفة المرجّح المتحرك، والالتزام ينتظر في حساب «مشتريات مستلمة لم تُفوتر».',
+   lines:[['1601',20000,0],['2107',0,20000]]},
+  {id:'match', en:'Supplier invoice (3-way match)', ar:'فاتورة مورد (مطابقة ثلاثية)', src:'Supplier bill',srcAr:'فاتورة مورد',
+   sayEn:'The invoice is <b>matched against the purchase order and the receipt</b>. The GRNI balance clears, input VAT becomes recoverable, and the supplier is now owed the full amount.',
+   sayAr:'الفاتورة <b>تُطابَق مع أمر الشراء وإذن الاستلام</b>. رصيد المشتريات غير المفوترة يُقفل، وضريبة المدخلات تصبح قابلة للاسترداد، ويُستحق للمورد المبلغ كاملاً.',
+   lines:[['2107',20000,0],['1402',2800,0],['2101',0,22800]]},
+  {id:'payroll', en:'Month-end payroll', ar:'استحقاق الرواتب', src:'Payroll batch',srcAr:'دفعة رواتب',
+   sayEn:'Payroll is <b>accrued at month-end</b>: gross salaries and the employer&rsquo;s insurance share are expensed; net pay, insurance and payroll tax become liabilities until they are paid.',
+   sayAr:'الرواتب <b>تُستحق في نهاية الشهر</b>: إجمالي الرواتب وحصة صاحب العمل في التأمينات مصروفات، وصافي الرواتب والتأمينات وضريبة كسب العمل التزامات حتى السداد.',
+   lines:[['5201',30000,0],['5202',3750,0],['2104',0,25000],['2203',0,7050],['2204',0,1700]]},
+  {id:'dep', en:'Monthly depreciation', ar:'إهلاك شهري', src:'Fixed-asset run',srcAr:'تشغيل الأصول الثابتة',
+   sayEn:'The fixed-asset register runs <b>straight-line depreciation</b> on site equipment (IAS 16). The asset keeps its cost; the accumulated depreciation account carries the wear.',
+   sayAr:'سجل الأصول الثابتة يحتسب <b>الإهلاك بطريقة القسط الثابت</b> لمعدات المواقع (IAS 16). الأصل يحتفظ بتكلفته، وحساب مجمع الإهلاك يحمل الاستهلاك.',
+   lines:[['5401',2500,0],['15xx',0,2500]]},
+  {id:'draw', en:'Partner withdrawal', ar:'مسحوبات شريك', src:'Payment voucher',srcAr:'سند صرف',
+   sayEn:'A partner withdraws cash. It is <b>not an expense</b> &mdash; it reduces equity through a contra account with a debit nature, so profit stays honest.',
+   sayAr:'شريك يسحب نقدية. هذا <b>ليس مصروفاً</b> &mdash; بل تخفيض لحقوق الملكية عبر حساب مقابل طبيعته مدينة، فيبقى الربح صادقاً.',
+   lines:[['3202',10000,0],['11xx',0,10000]]}
+];
+
+const T = {
+  'nav.back':['Back to portfolio','رجوع للبورتفوليو'],
+  'hero.eyebrow':['Bonyan ERP &middot; SaaS product &middot; Team Lead &amp; Product Manager','بنيان ERP &middot; منتج SaaS &middot; قائد فريق ومدير منتج'],
+  'hero.h1':['An ERP whose books an <em>auditor</em> can read.','نظام ERP يستطيع <em>المراجع</em> أن يقرأ دفاتره.'],
+  'hero.lede':['Bonyan is a multi-tenant SaaS ERP for project-based companies &mdash; contracting, finishing and fit-out firms that need to know which project makes money. I built its foundation, <b>Loom ERP</b>, from scratch; today I <b>lead the development team and own the product</b>. Its accounting core was designed by the accountant I used to be: a <b>Bachelor of Commerce in Accounting</b> and two years of audit and tax work before I wrote production code.','بنيان نظام ERP سحابي متعدد الشركات للشركات القائمة على المشاريع &mdash; شركات المقاولات والتشطيبات التي تحتاج أن تعرف أي مشروع يربح. بنيت أساسه، <b>Loom ERP</b>، من الصفر، واليوم <b>أقود فريق التطوير وأدير المنتج</b>. وصمّمت قلبه المحاسبي بعين المحاسب الذي كنته: <b>بكالوريوس تجارة شعبة محاسبة</b> وعامان في المراجعة والضرائب قبل أن أكتب كوداً في الإنتاج.'],
+  'f.tenants':['company workspaces','مساحة عمل لشركات'],
+  'f.accounts':['accounts in the seed chart','حساباً في الشجرة الأساسية'],
+  'f.rules':['automatic posting roles','قاعدة ترحيل تلقائي'],
+  'f.perms':['permission flags','صلاحية تفصيلية'],
+  'f.reports':['PDF &amp; Excel reports','تقرير PDF وExcel'],
+  'f.ng':['Angular upgrade','ترقية Angular'],
+  'cta.live':['Visit bonyan-erp.com','زيارة bonyan-erp.com'],
+  'cta.try':['Try the ledger explorer &#8595;','جرّب مستكشف القيود &#8595;'],
+  'cap.dash':['The owner dashboard: treasury, collections, billed-but-uncollected, actual vs. expected profit and a 12-week cash flow &mdash; all read from the same ledger.','لوحة المالك: الخزينة والتحصيلات والمفوتر غير المحصّل والربح الفعلي مقابل المتوقع وتدفق نقدي لاثني عشر أسبوعاً &mdash; كلها من نفس الأستاذ العام.'],
+  'k.ledger':['The signature feature','الميزة الأبرز'],
+  'h.ledger':['Pick a business event. Watch the ledger post it.','اختر عملية، وشاهد الأستاذ العام يرحّلها.'],
+  'n.ledger':['Users never write journal entries for daily work. They record what happened &mdash; a progress bill, a contractor statement, a goods receipt &mdash; and Bonyan derives the double entry from about fifty mapped posting roles. The source document stays the single source of truth; the ledger is a projection of it, so the two can never disagree.','المستخدم لا يكتب قيوداً في عمله اليومي. يسجّل ما حدث &mdash; مستخلص أو فاتورة مقاول أو إذن استلام &mdash; وبنيان يشتق القيد المزدوج من نحو خمسين قاعدة ترحيل مربوطة بالحسابات. المستند الأصلي يظل مصدر الحقيقة الوحيد، والأستاذ العام إسقاط له، فلا يمكن أن يختلفا.'],
+  't.entry':['Journal entry','قيد اليومية'],
+  't.code':['Code','الكود'],
+  't.acct':['Account','الحساب'],
+  't.dr':['Debit','مدين'],
+  't.cr':['Credit','دائن'],
+  't.chart':['Chart of accounts','شجرة الحسابات'],
+  't.depth':['5 levels &middot; 5 roots','5 مستويات &middot; 5 جذور'],
+  'n.fine':['Account codes and names are the real seed chart every new Bonyan tenant starts with (shortened here). Amounts are illustrative; tax rates and payroll deductions are configured per company.','أكواد الحسابات وأسماؤها هي الشجرة الأساسية الحقيقية التي تبدأ بها كل شركة جديدة على بنيان (مختصرة هنا). المبالغ توضيحية، ونسب الضرائب واستقطاعات الرواتب تُضبط لكل شركة.'],
+  'k.acc':['Why an accountant built it','لماذا بناه محاسب'],
+  'h.acc':['Decisions that come from having closed the books myself.','قرارات تأتي من أنني أقفلت الدفاتر بنفسي من قبل.'],
+  'a1.h':['A tree, not a list','شجرة لا قائمة'],
+  'a1.p':['The chart of accounts is a five-level tree under five roots &mdash; assets, liabilities, equity, revenue, expenses. Children inherit their root&rsquo;s type, codes extend the parent&rsquo;s code, and contra accounts carry their own normal side: partner withdrawals sit in equity with a <em>debit</em> nature, the doubtful-debts allowance in assets with a <em>credit</em> one.','شجرة الحسابات خمسة مستويات تحت خمسة جذور &mdash; الأصول والالتزامات وحقوق الملكية والإيرادات والمصروفات. الفروع ترث نوع الجذر، والأكواد تمتد من كود الأب، والحسابات المقابلة لها طبيعتها الخاصة: مسحوبات الشركاء ضمن حقوق الملكية بطبيعة <em>مدينة</em>، ومخصص الديون المشكوك فيها ضمن الأصول بطبيعة <em>دائنة</em>.'],
+  'a2.h':['Nothing hides in suspense','لا شيء يختبئ في الحساب المعلّق'],
+  'a2.p':['Anything that cannot be mapped cleanly lands in suspense account <code>1901</code> &mdash; and automated probes fail the build if it is not empty. Parity tests compare every report against the ledger, so the trial balance and the project-profit screen can never tell different stories.','أي حركة لا تُربط بوضوح تذهب إلى الحساب المعلّق <code>1901</code> &mdash; والاختبارات الآلية تفشل إن لم يكن صفراً. واختبارات التطابق تقارن كل تقرير بالأستاذ العام، فلا يمكن أن يحكي ميزان المراجعة وشاشة ربحية المشروع قصتين مختلفتين.'],
+  'a3.h':['Closed means closed','المقفل مقفل'],
+  'a3.p':['Months lock. A closed month is frozen as a snapshot protected by a hash chain, so any later change is detectable. Reopening creates a numbered revision instead of silently rewriting history, and year-end close moves the result to retained earnings in one atomic step.','الشهور تُقفل. الشهر المقفل يُجمَّد في لقطة محمية بسلسلة تجزئة، فأي تغيير لاحق يُكتشف. وإعادة الفتح تُنشئ مراجعة مرقّمة بدل إعادة كتابة التاريخ بصمت، وإقفال نهاية السنة يرحّل النتيجة إلى الأرباح المرحّلة في خطوة واحدة متكاملة.'],
+  'a4.h':['Posted entries are reversed, never edited','القيد المرحَّل يُعكس ولا يُعدَّل'],
+  'a4.p':['Manual journal entries move from draft to posted. After that the only way to correct one is a reversing entry &mdash; exactly the audit trail I used to ask clients for.','القيود اليدوية تنتقل من مسودة إلى مرحَّل، وبعدها الطريقة الوحيدة للتصحيح هي قيد عكسي &mdash; نفس مسار المراجعة الذي كنت أطلبه من العملاء.'],
+  'a5.h':['Standards, not shortcuts','معايير لا اختصارات'],
+  'a5.p':['Fixed assets follow IAS 16 and IAS 36: straight-line and declining-balance depreciation, revaluations, impairment and its reversal, disposal with gain or loss. Inventory follows IAS 2 with a moving weighted-average cost per item per warehouse.','الأصول الثابتة وفق IAS 16 وIAS 36: إهلاك بالقسط الثابت والمتناقص، ومراجعات، واضمحلال وعكسه، واستبعاد بربح أو خسارة. والمخزون وفق IAS 2 بمتوسط مرجّح متحرك لكل صنف في كل مخزن.'],
+  'a6.h':['Procure-to-pay that reconciles','دورة مشتريات تتطابق'],
+  'a6.p':['Purchase requests, orders, receipts and supplier bills are settled by three-way matching through a goods-received-not-invoiced account (<code>2107</code>), with retentions, credit notes, input VAT and withholding handled on the way.','طلبات الشراء وأوامره والاستلامات وفواتير الموردين تُسوّى بالمطابقة الثلاثية عبر حساب المشتريات المستلمة غير المفوترة (<code>2107</code>)، مع المحتجزات والإشعارات الدائنة وضريبة المدخلات والخصم من المنبع.'],
+  'cap.fin':['Financial reports: income statement next to per-project profitability, exportable to PDF or Excel. Balance sheet, cash flow, equity changes, trial balance and aging sit one tab away.','التقارير المالية: قائمة الدخل بجوار ربحية كل مشروع، مع تصدير PDF وExcel. والميزانية والتدفقات النقدية والتغير في حقوق الملكية وميزان المراجعة وأعمار الديون على بُعد تبويب واحد.'],
+  'k.lead':['Leading the product','قيادة المنتج'],
+  'h.lead':['From the first line of Loom to running the team behind Bonyan.','من أول سطر في Loom إلى قيادة الفريق خلف بنيان.'],
+  'l1.h':['Built the foundation from scratch','بنيت الأساس من الصفر'],
+  'l1.p':['Loom ERP &mdash; projects, BOQ items, contractors, custodies, vouchers, HR &mdash; was my build from an empty repository. Bonyan grew out of it, and I have since added the general ledger, financial statements, fixed assets, inventory, purchasing, payroll accruals, project taxes and the AI gateway.','Loom ERP &mdash; المشاريع وبنود الأعمال والمقاولون والعهد والسندات والموارد البشرية &mdash; بنيته من مستودع فارغ. بنيان خرج منه، وأضفت إليه بعد ذلك الأستاذ العام والقوائم المالية والأصول الثابتة والمخزون والمشتريات واستحقاق الرواتب وضرائب المشاريع وبوابة الذكاء الاصطناعي.'],
+  'l2.h':['Team lead and product manager','قائد فريق ومدير منتج'],
+  'l2.p':['I own the roadmap, and it starts with subscribers: I talk to owners and accountants directly and turn their requests into specs. No two contracting firms work alike, so features usually ship as per-company options &mdash; cash or accrual reporting, per-project tax rules, permission profiles &mdash; not one fixed workflow. Big designs are reviewed adversarially before merge; releases ship through one ordered command: backup, tenant migrations, deploy.','أملك خارطة الطريق، وتبدأ من المشتركين: أتواصل مع أصحاب الشركات والمحاسبين مباشرة وأحوّل طلباتهم إلى مواصفات. ولأن كل شركة مقاولات تعمل بطريقتها، تُنفَّذ الميزات غالباً كخيارات تُضبط لكل شركة &mdash; تقارير بالأساس النقدي أو الاستحقاق، وقواعد ضرائب لكل مشروع، وملفات صلاحيات &mdash; لا مسار عمل واحد ثابت. التصميمات الكبيرة تُراجع نقدياً قبل الدمج، والإصدارات تُنشر بأمر واحد مرتّب: نسخة احتياطية، ثم تحديث قواعد بيانات الشركات، ثم النشر.'],
+  'l3.h':['Faster, without breaking a route','أسرع، دون كسر أي مسار'],
+  'l3.p':['I upgraded the frontend from Angular 8 to 21 in thirteen incremental steps, keeping every route working at each one &mdash; 231 components and 83 services carried forward onto a faster, lighter build. Speed and usability fixes since then come straight from where users get stuck.','رقّيت الواجهة من Angular 8 إلى 21 في ثلاث عشرة خطوة متدرجة، مع بقاء كل المسارات تعمل في كل خطوة &mdash; 231 مكوناً و83 خدمة انتقلت إلى بناء أسرع وأخف. وتحسينات السرعة وسهولة الاستخدام بعدها تأتي مباشرة من المواضع التي يتعثر فيها المستخدمون.'],
+  'l4.h':['AI agents with a seatbelt','وكلاء ذكاء اصطناعي بحزام أمان'],
+  'l4.p':['An MCP gateway lets Claude or ChatGPT work inside a company&rsquo;s workspace: OAuth 2.0 with PKCE, 24 scopes, around 68 tools &mdash; and a human approval step before anything that deletes, approves or pays.','بوابة MCP تتيح لـClaude أو ChatGPT العمل داخل مساحة الشركة: OAuth 2.0 مع PKCE، و24 نطاق صلاحية، ونحو 68 أداة &mdash; مع موافقة بشرية قبل أي حذف أو اعتماد أو دفع.'],
+  'l5.h':['One database per company','قاعدة بيانات لكل شركة'],
+  'l5.p':['Every tenant gets its own MySQL database, resolved from its subdomain and provisioned by a queued job from a schema template plus 122 numbered migrations. A full export and restore runs through a shadow database with an atomic swap.','كل شركة لها قاعدة بيانات MySQL مستقلة، تُحدَّد من النطاق الفرعي وتُنشأ عبر مهمة في الطابور من قالب مخطط و122 ترحيلاً مرقّماً. والتصدير والاستعادة الكاملة تتم عبر قاعدة ظل مع تبديل ذرّي.'],
+  'l6.h':['Tested like money depends on it','مُختبَر كأن المال يعتمد عليه'],
+  'l6.p':['Backend parity tests and report probes, PHPUnit on the SaaS layer, and 194 frontend spec files with about 1,800 test cases &mdash; most of the ledger, inventory and report tests are mine.','اختبارات تطابق وفحوص تقارير في الباك إند، وPHPUnit في طبقة الـSaaS، و194 ملف اختبار في الواجهة بنحو 1,800 حالة &mdash; ومعظم اختبارات الأستاذ العام والمخزون والتقارير كتبتها بنفسي.'],
+  'k.stack':['Under the hood','تحت الغطاء'],
+  'h.stack':['Five repositories, one product.','خمسة مستودعات، منتج واحد.'],
+  'n.stack':['An Angular ERP client, a PHP 8 API with the accounting engine, a Laravel 12 SaaS layer for subscriptions, billing and tenant provisioning, and two Next.js apps for the admin dashboard and the bilingual marketing site.','واجهة ERP بـAngular، وواجهة API بـPHP 8 تحمل المحرك المحاسبي، وطبقة SaaS بـLaravel 12 للاشتراكات والفوترة وإنشاء الشركات، وتطبيقا Next.js للوحة الإدارة والموقع التسويقي ثنائي اللغة.'],
+  's.rtl':['Arabic-first RTL &middot; English','عربي أولاً RTL &middot; إنجليزي'],
+  'foot.disc':['Bonyan ERP is a commercial product of It Plus Programming Solutions. Figures on this page come from the codebase and its git history as of October 2026; the workspace count includes trial and demo companies.','بنيان ERP منتج تجاري لشركة It Plus Programming Solutions. الأرقام في هذه الصفحة من الكود وسجل git حتى أكتوبر 2026، وعدد مساحات العمل يشمل الشركات التجريبية والعروض.'],
+  'foot.back':['&#8592; Back to the rest of the work','&#8592; رجوع لباقي الأعمال']
+};
+
+let lang = 'en', active = 'bill';
+const fmt = n => n ? n.toLocaleString('en-US') : '';
+
+function render(){
+  const i = lang === 'ar' ? 1 : 0;
+  document.querySelectorAll('[data-t]').forEach(el=>{
+    const v = T[el.getAttribute('data-t')];
+    if (v) el.innerHTML = v[i];
+  });
+  const ev = EVENTS.find(e=>e.id===active);
+  document.getElementById('evBtns').innerHTML = EVENTS.map(e=>
+    `<button class="ev" type="button" aria-pressed="${e.id===active}" data-e="${e.id}">${i?e.ar:e.en}</button>`).join('');
+  document.getElementById('evSay').innerHTML = i ? ev.sayAr : ev.sayEn;
+  document.getElementById('evSrc').textContent = i ? ev.srcAr : ev.src;
+  let dr = 0, cr = 0;
+  const rows = ev.lines.map(([c,d,k])=>{
+    dr += d; cr += k;
+    return `<tr><td class="code">${c}</td><td class="${k?'cr':''}">${NAME[c][i]}</td><td class="num">${fmt(d)}</td><td class="num">${fmt(k)}</td></tr>`;
+  }).join('');
+  document.getElementById('evRows').innerHTML = rows +
+    `<tr class="tot"><td></td><td>${i?'الإجمالي':'Total'}</td><td class="num">${fmt(dr)}</td><td class="num">${fmt(cr)}</td></tr>`;
+  document.getElementById('evBal').innerHTML = dr === cr
+    ? `&#10003; ${i?'القيد متوازن &mdash; المدين يساوي الدائن':'Balanced &mdash; debits equal credits'}` : '';
+  const used = new Set(ev.lines.map(l=>l[0]));
+  const hit = code => used.has(code) || [...used].some(u => u.startsWith(code) || (u.endsWith('xx') && code === u.slice(0,2)));
+  document.getElementById('coa').innerHTML = COA.map(([c,en,ar,l])=>
+    `<li class="l${l}${hit(c)?' on':''}"><span class="c">${c}</span><span>${i?ar:en}</span></li>`).join('');
+  document.getElementById('lang').textContent = i ? 'English' : 'العربية';
+  document.documentElement.lang = lang;
+  document.documentElement.dir = i ? 'rtl' : 'ltr';
+}
+
+document.getElementById('evBtns').addEventListener('click', e=>{
+  const b = e.target.closest('[data-e]');
+  if (!b) return;
+  active = b.dataset.e;
+  render();
+});
+document.getElementById('lang').addEventListener('click', ()=>{
+  lang = lang === 'en' ? 'ar' : 'en';
+  try { localStorage.setItem('portfolio-lang', lang); } catch(e){}
+  render();
+});
+const theme = document.getElementById('theme');
+function setTheme(t){
+  document.documentElement.setAttribute('data-theme', t);
+  theme.innerHTML = t === 'dark' ? '&#9788;' : '&#9790;';
+  try { localStorage.setItem('portfolio-theme', t); } catch(e){}
+}
+theme.addEventListener('click', ()=> setTheme(
+  document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'));
+
+try {
+  const st = localStorage.getItem('portfolio-theme'); if (st) setTheme(st);
+  const sl = localStorage.getItem('portfolio-lang'); if (sl === 'ar') lang = 'ar';
+} catch(e){}
+render();
+</script>
+</body>
+</html>

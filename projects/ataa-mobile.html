@@ -83,6 +83,7 @@ h2{font-family:var(--font-display);font-weight:700;font-size:clamp(1.35rem,2.6vw
 .apps{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .app{border:1px solid var(--line);border-radius:var(--r);padding:24px;background:var(--panel)}
 .app h3{font-family:var(--font-display);font-size:1.12rem;font-weight:700;margin-bottom:4px}
+.app-id{display:flex;align-items:center;gap:12px;margin-bottom:6px}.app-id h3{margin:0}.app-id img{border-radius:11px;box-shadow:0 4px 14px rgba(0,0,0,.25)}
 .app .who{font-family:var(--font-mono);font-size:.7rem;color:var(--mint);margin-bottom:14px}
 .app p{color:var(--ink-2);font-size:.9rem}
 .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px}
@@ -156,13 +157,13 @@ footer a{color:var(--mint)}
   </div>
   <div class="apps">
     <article class="app">
-      <h3>QMS Ataa</h3>
+      <div class="app-id"><img src="../assets/img/projects/ataa-qms-icon.png" alt="QMS Ataa app icon" width="44" height="44"><h3>QMS Ataa</h3></div>
       <div class="who" data-t="app.qms.who">quality management &middot; 18 modules</div>
       <p data-t="app.qms.p">School visits, standards, indicators, evaluations and corrective plans, over a membership matrix that spans stage officers, domain owners, visit teams and central quality management. Comment threads carry photos, video and voice notes.</p>
       <div class="chips"><span class="chip">visits</span><span class="chip">standards</span><span class="chip">indicators</span><span class="chip">corrective plans</span><span class="chip">evaluations</span><span class="chip">schools</span></div>
     </article>
     <article class="app">
-      <h3>OPS Ataa</h3>
+      <div class="app-id"><img src="../assets/img/projects/ataa-ops-icon.png" alt="OPS Ataa app icon" width="44" height="44"><h3>OPS Ataa</h3></div>
       <div class="who" data-t="app.ops.who">operational planning &middot; 11 modules</div>
       <p data-t="app.ops.p">The full planning chain — strategic goals, sub-goals, work plans, indicators — plus quarterly and annual evaluations with server-derived targets, PDF export, and approval gates that refuse to pass an incomplete plan.</p>
       <div class="chips"><span class="chip">plans</span><span class="chip">goal chain</span><span class="chip">work plans</span><span class="chip">quarterly eval</span><span class="chip">PDF export</span><span class="chip">statistics</span></div>
